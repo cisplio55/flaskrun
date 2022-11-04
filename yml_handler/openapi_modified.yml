@@ -1,0 +1,2530 @@
+# Copyright 2021 Google LLC
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+# [START swagger]
+swagger: "2.0"
+info:
+  description: "Pypa API specification, across all products."
+  title: "Pypa Endpoint for Development"
+  version: "1.0.0"
+host: "pypa-api-development.endpoints.huko-312103.cloud.goog"
+# basePath: "/dev/v1"
+x-google-endpoints:
+- name: "pypa-api-development.endpoints.huko-312103.cloud.goog"
+  target: "34.149.86.33"
+# [END swagger]
+consumes:
+  - "application/json"
+produces:
+  - "application/json"
+schemes:
+  # Uncomment the next line if you configure SSL for this API.
+  - "https"
+  - "http"
+security: 
+- api_key: []
+  pypa_auth: []
+paths: 
+  #
+  "/accounts/authentication/app_registrations/create-view":
+    options:
+      description: "Accounts App_registrations Create-view"
+      operationId: "accounts-options-app_registrations-create-view"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts App_registrations Create-view"
+      security: []
+    get:
+      description: "Accounts App_registrations Create-view"
+      operationId: "accounts-get-app_registrations-create-view"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts App_registrations Create-view"
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/app_registrations/create":
+    options:
+      description: "Accounts App_registrations Create"
+      operationId: "accounts-options-app_registrations-create"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts App_registrations Create"
+      security: []
+    post:
+      description: "Accounts App_registrations Create"
+      operationId: "accounts-post-app_registrations-create"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts App_registrations Create"
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/app_registrations/export":
+    options:
+      description: "Accounts App_registrations Export"
+      operationId: "accounts-options-app_registrations-export"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts App_registrations Export"
+      security: []
+    get:
+      description: "Accounts App_registrations Export"
+      operationId: "accounts-get-app_registrations-export"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts App_registrations Export"
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/app_registrations/trash":
+    options:
+      description: "Accounts App_registrations Trash"
+      operationId: "accounts-options-app_registrations-trash"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts App_registrations Trash"
+      security: []
+    get:
+      description: "Accounts App_registrations Trash"
+      operationId: "accounts-get-app_registrations-trash"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts App_registrations Trash"
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/app_registrations/list":
+    options:
+      description: "Accounts App_registrations List"
+      operationId: "accounts-options-app_registrations-list"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts App_registrations List"
+      security: []
+    get:
+      description: "Accounts App_registrations List"
+      operationId: "accounts-get-app_registrations-list"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts App_registrations List"
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/organizations/create-view":
+    options:
+      description: "Accounts Organizations Create-view"
+      operationId: "accounts-options-organizations-create-view"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Organizations Create-view"
+      security: []
+    get:
+      description: "Accounts Organizations Create-view"
+      operationId: "accounts-get-organizations-create-view"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Organizations Create-view"
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/organizations/create":
+    options:
+      description: "Accounts Organizations Create"
+      operationId: "accounts-options-organizations-create"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Organizations Create"
+      security: []
+    post:
+      description: "Accounts Organizations Create"
+      operationId: "accounts-post-organizations-create"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Organizations Create"
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/organizations/export":
+    options:
+      description: "Accounts Organizations Export"
+      operationId: "accounts-options-organizations-export"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Organizations Export"
+      security: []
+    get:
+      description: "Accounts Organizations Export"
+      operationId: "accounts-get-organizations-export"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Organizations Export"
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/organizations/trash":
+    options:
+      description: "Accounts Organizations Trash"
+      operationId: "accounts-options-organizations-trash"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Organizations Trash"
+      security: []
+    get:
+      description: "Accounts Organizations Trash"
+      operationId: "accounts-get-organizations-trash"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Organizations Trash"
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/organizations/list":
+    options:
+      description: "Accounts Organizations List"
+      operationId: "accounts-options-organizations-list"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Organizations List"
+      security: []
+    get:
+      description: "Accounts Organizations List"
+      operationId: "accounts-get-organizations-list"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Organizations List"
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/permissions/generate-permission":
+    options:
+      description: "Accounts Permissions Generate-permission"
+      operationId: "accounts-options-permissions-generate-permission"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Permissions Generate-permission"
+      security: []
+    post:
+      description: "Accounts Permissions Generate-permission"
+      operationId: "accounts-post-permissions-generate-permission"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Permissions Generate-permission"
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/permissions/create-view":
+    options:
+      description: "Accounts Permissions Create-view"
+      operationId: "accounts-options-permissions-create-view"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Permissions Create-view"
+      security: []
+    get:
+      description: "Accounts Permissions Create-view"
+      operationId: "accounts-get-permissions-create-view"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Permissions Create-view"
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/permissions/create":
+    options:
+      description: "Accounts Permissions Create"
+      operationId: "accounts-options-permissions-create"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Permissions Create"
+      security: []
+    post:
+      description: "Accounts Permissions Create"
+      operationId: "accounts-post-permissions-create"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Permissions Create"
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/permissions/export":
+    options:
+      description: "Accounts Permissions Export"
+      operationId: "accounts-options-permissions-export"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Permissions Export"
+      security: []
+    get:
+      description: "Accounts Permissions Export"
+      operationId: "accounts-get-permissions-export"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Permissions Export"
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/permissions/trash":
+    options:
+      description: "Accounts Permissions Trash"
+      operationId: "accounts-options-permissions-trash"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Permissions Trash"
+      security: []
+    get:
+      description: "Accounts Permissions Trash"
+      operationId: "accounts-get-permissions-trash"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Permissions Trash"
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/permissions/list":
+    options:
+      description: "Accounts Permissions List"
+      operationId: "accounts-options-permissions-list"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Permissions List"
+      security: []
+    get:
+      description: "Accounts Permissions List"
+      operationId: "accounts-get-permissions-list"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Permissions List"
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/accounts/create-view":
+    options:
+      description: "Accounts Accounts Create-view"
+      operationId: "accounts-options-accounts-create-view"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Accounts Create-view"
+      security: []
+    get:
+      description: "Accounts Accounts Create-view"
+      operationId: "accounts-get-accounts-create-view"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Accounts Create-view"
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/accounts/create":
+    options:
+      description: "Accounts Accounts Create"
+      operationId: "accounts-options-accounts-create"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Accounts Create"
+      security: []
+    post:
+      description: "Accounts Accounts Create"
+      operationId: "accounts-post-accounts-create"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Accounts Create"
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/accounts/export":
+    options:
+      description: "Accounts Accounts Export"
+      operationId: "accounts-options-accounts-export"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Accounts Export"
+      security: []
+    get:
+      description: "Accounts Accounts Export"
+      operationId: "accounts-get-accounts-export"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Accounts Export"
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/accounts/trash":
+    options:
+      description: "Accounts Accounts Trash"
+      operationId: "accounts-options-accounts-trash"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Accounts Trash"
+      security: []
+    get:
+      description: "Accounts Accounts Trash"
+      operationId: "accounts-get-accounts-trash"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Accounts Trash"
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/accounts/list":
+    options:
+      description: "Accounts Accounts List"
+      operationId: "accounts-options-accounts-list"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Accounts List"
+      security: []
+    get:
+      description: "Accounts Accounts List"
+      operationId: "accounts-get-accounts-list"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Accounts List"
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/actions/create-view":
+    options:
+      description: "Accounts Actions Create-view"
+      operationId: "accounts-options-actions-create-view"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Actions Create-view"
+      security: []
+    get:
+      description: "Accounts Actions Create-view"
+      operationId: "accounts-get-actions-create-view"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Actions Create-view"
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/modules/create-view":
+    options:
+      description: "Accounts Modules Create-view"
+      operationId: "accounts-options-modules-create-view"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Modules Create-view"
+      security: []
+    get:
+      description: "Accounts Modules Create-view"
+      operationId: "accounts-get-modules-create-view"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Modules Create-view"
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/actions/create":
+    options:
+      description: "Accounts Actions Create"
+      operationId: "accounts-options-actions-create"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Actions Create"
+      security: []
+    post:
+      description: "Accounts Actions Create"
+      operationId: "accounts-post-actions-create"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Actions Create"
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/actions/export":
+    options:
+      description: "Accounts Actions Export"
+      operationId: "accounts-options-actions-export"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Actions Export"
+      security: []
+    get:
+      description: "Accounts Actions Export"
+      operationId: "accounts-get-actions-export"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Actions Export"
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/modules/create":
+    options:
+      description: "Accounts Modules Create"
+      operationId: "accounts-options-modules-create"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Modules Create"
+      security: []
+    post:
+      description: "Accounts Modules Create"
+      operationId: "accounts-post-modules-create"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Modules Create"
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/modules/export":
+    options:
+      description: "Accounts Modules Export"
+      operationId: "accounts-options-modules-export"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Modules Export"
+      security: []
+    get:
+      description: "Accounts Modules Export"
+      operationId: "accounts-get-modules-export"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Modules Export"
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/actions/trash":
+    options:
+      description: "Accounts Actions Trash"
+      operationId: "accounts-options-actions-trash"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Actions Trash"
+      security: []
+    get:
+      description: "Accounts Actions Trash"
+      operationId: "accounts-get-actions-trash"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Actions Trash"
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/modules/trash":
+    options:
+      description: "Accounts Modules Trash"
+      operationId: "accounts-options-modules-trash"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Modules Trash"
+      security: []
+    get:
+      description: "Accounts Modules Trash"
+      operationId: "accounts-get-modules-trash"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Modules Trash"
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/actions/list":
+    options:
+      description: "Accounts Actions List"
+      operationId: "accounts-options-actions-list"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Actions List"
+      security: []
+    get:
+      description: "Accounts Actions List"
+      operationId: "accounts-get-actions-list"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Actions List"
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/modules/list":
+    options:
+      description: "Accounts Modules List"
+      operationId: "accounts-options-modules-list"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Modules List"
+      security: []
+    get:
+      description: "Accounts Modules List"
+      operationId: "accounts-get-modules-list"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Modules List"
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/scopes/create-view":
+    options:
+      description: "Accounts Scopes Create-view"
+      operationId: "accounts-options-scopes-create-view"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Scopes Create-view"
+      security: []
+    get:
+      description: "Accounts Scopes Create-view"
+      operationId: "accounts-get-scopes-create-view"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Scopes Create-view"
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/scopes/create":
+    options:
+      description: "Accounts Scopes Create"
+      operationId: "accounts-options-scopes-create"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Scopes Create"
+      security: []
+    post:
+      description: "Accounts Scopes Create"
+      operationId: "accounts-post-scopes-create"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Scopes Create"
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/scopes/export":
+    options:
+      description: "Accounts Scopes Export"
+      operationId: "accounts-options-scopes-export"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Scopes Export"
+      security: []
+    get:
+      description: "Accounts Scopes Export"
+      operationId: "accounts-get-scopes-export"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Scopes Export"
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/scopes/trash":
+    options:
+      description: "Accounts Scopes Trash"
+      operationId: "accounts-options-scopes-trash"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Scopes Trash"
+      security: []
+    get:
+      description: "Accounts Scopes Trash"
+      operationId: "accounts-get-scopes-trash"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Scopes Trash"
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/scopes/list":
+    options:
+      description: "Accounts Scopes List"
+      operationId: "accounts-options-scopes-list"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Scopes List"
+      security: []
+    get:
+      description: "Accounts Scopes List"
+      operationId: "accounts-get-scopes-list"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Scopes List"
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/roles/create-view":
+    options:
+      description: "Accounts Roles Create-view"
+      operationId: "accounts-options-roles-create-view"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Roles Create-view"
+      security: []
+    get:
+      description: "Accounts Roles Create-view"
+      operationId: "accounts-get-roles-create-view"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Roles Create-view"
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/users/create-view":
+    options:
+      description: "Accounts Users Create-view"
+      operationId: "accounts-options-users-create-view"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Users Create-view"
+      security: []
+    get:
+      description: "Accounts Users Create-view"
+      operationId: "accounts-get-users-create-view"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Users Create-view"
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/roles/create":
+    options:
+      description: "Accounts Roles Create"
+      operationId: "accounts-options-roles-create"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Roles Create"
+      security: []
+    post:
+      description: "Accounts Roles Create"
+      operationId: "accounts-post-roles-create"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Roles Create"
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/roles/export":
+    options:
+      description: "Accounts Roles Export"
+      operationId: "accounts-options-roles-export"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Roles Export"
+      security: []
+    get:
+      description: "Accounts Roles Export"
+      operationId: "accounts-get-roles-export"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Roles Export"
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/users/create":
+    options:
+      description: "Accounts Users Create"
+      operationId: "accounts-options-users-create"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Users Create"
+      security: []
+    post:
+      description: "Accounts Users Create"
+      operationId: "accounts-post-users-create"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Users Create"
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/users/export":
+    options:
+      description: "Accounts Users Export"
+      operationId: "accounts-options-users-export"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Users Export"
+      security: []
+    get:
+      description: "Accounts Users Export"
+      operationId: "accounts-get-users-export"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Users Export"
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/roles/trash":
+    options:
+      description: "Accounts Roles Trash"
+      operationId: "accounts-options-roles-trash"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Roles Trash"
+      security: []
+    get:
+      description: "Accounts Roles Trash"
+      operationId: "accounts-get-roles-trash"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Roles Trash"
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/users/trash":
+    options:
+      description: "Accounts Users Trash"
+      operationId: "accounts-options-users-trash"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Users Trash"
+      security: []
+    get:
+      description: "Accounts Users Trash"
+      operationId: "accounts-get-users-trash"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Users Trash"
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/roles/list":
+    options:
+      description: "Accounts Roles List"
+      operationId: "accounts-options-roles-list"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Roles List"
+      security: []
+    get:
+      description: "Accounts Roles List"
+      operationId: "accounts-get-roles-list"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Roles List"
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/users/list":
+    options:
+      description: "Accounts Users List"
+      operationId: "accounts-options-users-list"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Users List"
+      security: []
+    get:
+      description: "Accounts Users List"
+      operationId: "accounts-get-users-list"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Users List"
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/sign-up/":
+    options:
+      description: "Accounts Sign-up "
+      operationId: "accounts-options-sign-up-"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Sign-up "
+      security: []
+    post:
+      description: "Accounts Sign-up "
+      operationId: "accounts-post-sign-up-"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Sign-up "
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/sign-in/":
+    options:
+      description: "Accounts Sign-in "
+      operationId: "accounts-options-sign-in-"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Sign-in "
+      security: []
+    post:
+      description: "Accounts Sign-in "
+      operationId: "accounts-post-sign-in-"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Sign-in "
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/ready":
+    options:
+      description: "Accounts Ready "
+      operationId: "accounts-options-ready"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Ready "
+      security: []
+    get:
+      description: "Accounts Ready "
+      operationId: "accounts-get-ready"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Ready "
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/app_registrations/destroy/{doc_id}":
+    options:
+      description: "Accounts App_registrations Destroy"
+      operationId: "accounts-options-app_registrations-destroy"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts App_registrations Destroy"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "App_registrations to fetch"
+        required: true
+        type: string
+      security: []
+    delete:
+      description: "Accounts App_registrations Destroy"
+      operationId: "accounts-delete-app_registrations-destroy"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts App_registrations Destroy"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "App_registrations to fetch"
+        required: true
+        type: string
+      security: []
+  "/accounts/authentication/app_registrations/restore/{doc_id}":
+    options:
+      description: "Accounts App_registrations Restore"
+      operationId: "accounts-options-app_registrations-restore"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts App_registrations Restore"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "App_registrations to fetch"
+        required: true
+        type: string
+      security: []
+    put:
+      description: "Accounts App_registrations Restore"
+      operationId: "accounts-put-app_registrations-restore"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts App_registrations Restore"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "App_registrations to fetch"
+        required: true
+        type: string
+      security: []
+  "/accounts/authentication/app_registrations/delete/{doc_id}":
+    options:
+      description: "Accounts App_registrations Delete"
+      operationId: "accounts-options-app_registrations-delete"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts App_registrations Delete"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "App_registrations to fetch"
+        required: true
+        type: string
+      security: []
+    delete:
+      description: "Accounts App_registrations Delete"
+      operationId: "accounts-delete-app_registrations-delete"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts App_registrations Delete"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "App_registrations to fetch"
+        required: true
+        type: string
+      security: []
+  "/accounts/authentication/app_registrations/view/{doc_id}":
+    options:
+      description: "Accounts App_registrations View"
+      operationId: "accounts-options-app_registrations-view"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts App_registrations View"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "App_registrations to fetch"
+        required: true
+        type: string
+      security: []
+    get:
+      description: "Accounts App_registrations View"
+      operationId: "accounts-get-app_registrations-view"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts App_registrations View"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "App_registrations to fetch"
+        required: true
+        type: string
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/organizations/destroy/{doc_id}":
+    options:
+      description: "Accounts Organizations Destroy"
+      operationId: "accounts-options-organizations-destroy"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Organizations Destroy"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Organizations to fetch"
+        required: true
+        type: string
+      security: []
+    delete:
+      description: "Accounts Organizations Destroy"
+      operationId: "accounts-delete-organizations-destroy"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Organizations Destroy"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Organizations to fetch"
+        required: true
+        type: string
+      security: []
+  "/accounts/authentication/organizations/restore/{doc_id}":
+    options:
+      description: "Accounts Organizations Restore"
+      operationId: "accounts-options-organizations-restore"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Organizations Restore"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Organizations to fetch"
+        required: true
+        type: string
+      security: []
+    put:
+      description: "Accounts Organizations Restore"
+      operationId: "accounts-put-organizations-restore"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Organizations Restore"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Organizations to fetch"
+        required: true
+        type: string
+      security: []
+  "/accounts/authentication/organizations/update/{doc_id}":
+    options:
+      description: "Accounts Organizations Update"
+      operationId: "accounts-options-organizations-update"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Organizations Update"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Organizations to fetch"
+        required: true
+        type: string
+      security: []
+    put:
+      description: "Accounts Organizations Update"
+      operationId: "accounts-put-organizations-update"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Organizations Update"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Organizations to fetch"
+        required: true
+        type: string
+      security: []
+  "/accounts/authentication/organizations/delete/{doc_id}":
+    options:
+      description: "Accounts Organizations Delete"
+      operationId: "accounts-options-organizations-delete"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Organizations Delete"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Organizations to fetch"
+        required: true
+        type: string
+      security: []
+    delete:
+      description: "Accounts Organizations Delete"
+      operationId: "accounts-delete-organizations-delete"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Organizations Delete"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Organizations to fetch"
+        required: true
+        type: string
+      security: []
+  "/accounts/authentication/organizations/view/{doc_id}":
+    options:
+      description: "Accounts Organizations View"
+      operationId: "accounts-options-organizations-view"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Organizations View"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Organizations to fetch"
+        required: true
+        type: string
+      security: []
+    get:
+      description: "Accounts Organizations View"
+      operationId: "accounts-get-organizations-view"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Organizations View"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Organizations to fetch"
+        required: true
+        type: string
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/permissions/destroy/{doc_id}":
+    options:
+      description: "Accounts Permissions Destroy"
+      operationId: "accounts-options-permissions-destroy"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Permissions Destroy"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Permissions to fetch"
+        required: true
+        type: string
+      security: []
+    delete:
+      description: "Accounts Permissions Destroy"
+      operationId: "accounts-delete-permissions-destroy"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Permissions Destroy"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Permissions to fetch"
+        required: true
+        type: string
+      security: []
+  "/accounts/authentication/permissions/restore/{doc_id}":
+    options:
+      description: "Accounts Permissions Restore"
+      operationId: "accounts-options-permissions-restore"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Permissions Restore"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Permissions to fetch"
+        required: true
+        type: string
+      security: []
+    post:
+      description: "Accounts Permissions Restore"
+      operationId: "accounts-post-permissions-restore"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Permissions Restore"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Permissions to fetch"
+        required: true
+        type: string
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/permissions/update/{doc_id}":
+    options:
+      description: "Accounts Permissions Update"
+      operationId: "accounts-options-permissions-update"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Permissions Update"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Permissions to fetch"
+        required: true
+        type: string
+      security: []
+    post:
+      description: "Accounts Permissions Update"
+      operationId: "accounts-post-permissions-update"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Permissions Update"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Permissions to fetch"
+        required: true
+        type: string
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/permissions/delete/{doc_id}":
+    options:
+      description: "Accounts Permissions Delete"
+      operationId: "accounts-options-permissions-delete"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Permissions Delete"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Permissions to fetch"
+        required: true
+        type: string
+      security: []
+    post:
+      description: "Accounts Permissions Delete"
+      operationId: "accounts-post-permissions-delete"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Permissions Delete"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Permissions to fetch"
+        required: true
+        type: string
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/permissions/view/{doc_id}":
+    options:
+      description: "Accounts Permissions View"
+      operationId: "accounts-options-permissions-view"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Permissions View"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Permissions to fetch"
+        required: true
+        type: string
+      security: []
+    get:
+      description: "Accounts Permissions View"
+      operationId: "accounts-get-permissions-view"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Permissions View"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Permissions to fetch"
+        required: true
+        type: string
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/accounts/destroy/{doc_id}":
+    options:
+      description: "Accounts Accounts Destroy"
+      operationId: "accounts-options-accounts-destroy"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Accounts Destroy"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Accounts to fetch"
+        required: true
+        type: string
+      security: []
+    delete:
+      description: "Accounts Accounts Destroy"
+      operationId: "accounts-delete-accounts-destroy"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Accounts Destroy"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Accounts to fetch"
+        required: true
+        type: string
+      security: []
+  "/accounts/authentication/accounts/restore/{doc_id}":
+    options:
+      description: "Accounts Accounts Restore"
+      operationId: "accounts-options-accounts-restore"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Accounts Restore"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Accounts to fetch"
+        required: true
+        type: string
+      security: []
+    put:
+      description: "Accounts Accounts Restore"
+      operationId: "accounts-put-accounts-restore"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Accounts Restore"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Accounts to fetch"
+        required: true
+        type: string
+      security: []
+  "/accounts/authentication/accounts/update/{doc_id}":
+    options:
+      description: "Accounts Accounts Update"
+      operationId: "accounts-options-accounts-update"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Accounts Update"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Accounts to fetch"
+        required: true
+        type: string
+      security: []
+    put:
+      description: "Accounts Accounts Update"
+      operationId: "accounts-put-accounts-update"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Accounts Update"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Accounts to fetch"
+        required: true
+        type: string
+      security: []
+  "/accounts/authentication/accounts/delete/{doc_id}":
+    options:
+      description: "Accounts Accounts Delete"
+      operationId: "accounts-options-accounts-delete"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Accounts Delete"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Accounts to fetch"
+        required: true
+        type: string
+      security: []
+    delete:
+      description: "Accounts Accounts Delete"
+      operationId: "accounts-delete-accounts-delete"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Accounts Delete"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Accounts to fetch"
+        required: true
+        type: string
+      security: []
+  "/accounts/authentication/accounts/view/{doc_id}":
+    options:
+      description: "Accounts Accounts View"
+      operationId: "accounts-options-accounts-view"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Accounts View"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Accounts to fetch"
+        required: true
+        type: string
+      security: []
+    get:
+      description: "Accounts Accounts View"
+      operationId: "accounts-get-accounts-view"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Accounts View"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Accounts to fetch"
+        required: true
+        type: string
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/actions/destroy/{doc_id}":
+    options:
+      description: "Accounts Actions Destroy"
+      operationId: "accounts-options-actions-destroy"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Actions Destroy"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Actions to fetch"
+        required: true
+        type: string
+      security: []
+    delete:
+      description: "Accounts Actions Destroy"
+      operationId: "accounts-delete-actions-destroy"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Actions Destroy"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Actions to fetch"
+        required: true
+        type: string
+      security: []
+  "/accounts/authentication/actions/restore/{doc_id}":
+    options:
+      description: "Accounts Actions Restore"
+      operationId: "accounts-options-actions-restore"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Actions Restore"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Actions to fetch"
+        required: true
+        type: string
+      security: []
+    post:
+      description: "Accounts Actions Restore"
+      operationId: "accounts-post-actions-restore"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Actions Restore"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Actions to fetch"
+        required: true
+        type: string
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/modules/destroy/{doc_id}":
+    options:
+      description: "Accounts Modules Destroy"
+      operationId: "accounts-options-modules-destroy"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Modules Destroy"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Modules to fetch"
+        required: true
+        type: string
+      security: []
+    delete:
+      description: "Accounts Modules Destroy"
+      operationId: "accounts-delete-modules-destroy"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Modules Destroy"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Modules to fetch"
+        required: true
+        type: string
+      security: []
+  "/accounts/authentication/modules/restore/{doc_id}":
+    options:
+      description: "Accounts Modules Restore"
+      operationId: "accounts-options-modules-restore"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Modules Restore"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Modules to fetch"
+        required: true
+        type: string
+      security: []
+    post:
+      description: "Accounts Modules Restore"
+      operationId: "accounts-post-modules-restore"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Modules Restore"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Modules to fetch"
+        required: true
+        type: string
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/actions/update/{doc_id}":
+    options:
+      description: "Accounts Actions Update"
+      operationId: "accounts-options-actions-update"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Actions Update"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Actions to fetch"
+        required: true
+        type: string
+      security: []
+    post:
+      description: "Accounts Actions Update"
+      operationId: "accounts-post-actions-update"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Actions Update"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Actions to fetch"
+        required: true
+        type: string
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/actions/delete/{doc_id}":
+    options:
+      description: "Accounts Actions Delete"
+      operationId: "accounts-options-actions-delete"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Actions Delete"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Actions to fetch"
+        required: true
+        type: string
+      security: []
+    post:
+      description: "Accounts Actions Delete"
+      operationId: "accounts-post-actions-delete"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Actions Delete"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Actions to fetch"
+        required: true
+        type: string
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/modules/update/{doc_id}":
+    options:
+      description: "Accounts Modules Update"
+      operationId: "accounts-options-modules-update"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Modules Update"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Modules to fetch"
+        required: true
+        type: string
+      security: []
+    post:
+      description: "Accounts Modules Update"
+      operationId: "accounts-post-modules-update"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Modules Update"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Modules to fetch"
+        required: true
+        type: string
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/modules/delete/{doc_id}":
+    options:
+      description: "Accounts Modules Delete"
+      operationId: "accounts-options-modules-delete"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Modules Delete"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Modules to fetch"
+        required: true
+        type: string
+      security: []
+    post:
+      description: "Accounts Modules Delete"
+      operationId: "accounts-post-modules-delete"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Modules Delete"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Modules to fetch"
+        required: true
+        type: string
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/actions/view/{doc_id}":
+    options:
+      description: "Accounts Actions View"
+      operationId: "accounts-options-actions-view"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Actions View"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Actions to fetch"
+        required: true
+        type: string
+      security: []
+    get:
+      description: "Accounts Actions View"
+      operationId: "accounts-get-actions-view"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Actions View"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Actions to fetch"
+        required: true
+        type: string
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/modules/view/{doc_id}":
+    options:
+      description: "Accounts Modules View"
+      operationId: "accounts-options-modules-view"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Modules View"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Modules to fetch"
+        required: true
+        type: string
+      security: []
+    get:
+      description: "Accounts Modules View"
+      operationId: "accounts-get-modules-view"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Modules View"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Modules to fetch"
+        required: true
+        type: string
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/scopes/destroy/{doc_id}":
+    options:
+      description: "Accounts Scopes Destroy"
+      operationId: "accounts-options-scopes-destroy"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Scopes Destroy"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Scopes to fetch"
+        required: true
+        type: string
+      security: []
+    delete:
+      description: "Accounts Scopes Destroy"
+      operationId: "accounts-delete-scopes-destroy"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Scopes Destroy"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Scopes to fetch"
+        required: true
+        type: string
+      security: []
+  "/accounts/authentication/scopes/restore/{doc_id}":
+    options:
+      description: "Accounts Scopes Restore"
+      operationId: "accounts-options-scopes-restore"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Scopes Restore"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Scopes to fetch"
+        required: true
+        type: string
+      security: []
+    post:
+      description: "Accounts Scopes Restore"
+      operationId: "accounts-post-scopes-restore"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Scopes Restore"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Scopes to fetch"
+        required: true
+        type: string
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/scopes/update/{doc_id}":
+    options:
+      description: "Accounts Scopes Update"
+      operationId: "accounts-options-scopes-update"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Scopes Update"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Scopes to fetch"
+        required: true
+        type: string
+      security: []
+    post:
+      description: "Accounts Scopes Update"
+      operationId: "accounts-post-scopes-update"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Scopes Update"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Scopes to fetch"
+        required: true
+        type: string
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/scopes/delete/{doc_id}":
+    options:
+      description: "Accounts Scopes Delete"
+      operationId: "accounts-options-scopes-delete"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Scopes Delete"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Scopes to fetch"
+        required: true
+        type: string
+      security: []
+    post:
+      description: "Accounts Scopes Delete"
+      operationId: "accounts-post-scopes-delete"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Scopes Delete"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Scopes to fetch"
+        required: true
+        type: string
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/scopes/view/{doc_id}":
+    options:
+      description: "Accounts Scopes View"
+      operationId: "accounts-options-scopes-view"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Scopes View"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Scopes to fetch"
+        required: true
+        type: string
+      security: []
+    get:
+      description: "Accounts Scopes View"
+      operationId: "accounts-get-scopes-view"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Scopes View"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Scopes to fetch"
+        required: true
+        type: string
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/roles/permission/<string:app_slug>/{app_slug}":
+    options:
+      description: "Accounts Roles "
+      operationId: "accounts-options-roles-permission-<string:app_slug>"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Roles "
+      parameters:
+      - name: app_slug
+        in: path
+        description: "Roles to fetch"
+        required: true
+        type: string
+      security: []
+    get:
+      description: "Accounts Roles "
+      operationId: "accounts-get-roles-permission-<string:app_slug>"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Roles "
+      parameters:
+      - name: app_slug
+        in: path
+        description: "Roles to fetch"
+        required: true
+        type: string
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/roles/destroy/{doc_id}":
+    options:
+      description: "Accounts Roles Destroy"
+      operationId: "accounts-options-roles-destroy"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Roles Destroy"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Roles to fetch"
+        required: true
+        type: string
+      security: []
+    delete:
+      description: "Accounts Roles Destroy"
+      operationId: "accounts-delete-roles-destroy"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Roles Destroy"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Roles to fetch"
+        required: true
+        type: string
+      security: []
+  "/accounts/authentication/roles/restore/{doc_id}":
+    options:
+      description: "Accounts Roles Restore"
+      operationId: "accounts-options-roles-restore"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Roles Restore"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Roles to fetch"
+        required: true
+        type: string
+      security: []
+    post:
+      description: "Accounts Roles Restore"
+      operationId: "accounts-post-roles-restore"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Roles Restore"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Roles to fetch"
+        required: true
+        type: string
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/users/destroy/{doc_id}":
+    options:
+      description: "Accounts Users Destroy"
+      operationId: "accounts-options-users-destroy"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Users Destroy"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Users to fetch"
+        required: true
+        type: string
+      security: []
+    delete:
+      description: "Accounts Users Destroy"
+      operationId: "accounts-delete-users-destroy"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Users Destroy"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Users to fetch"
+        required: true
+        type: string
+      security: []
+  "/accounts/authentication/users/restore/{doc_id}":
+    options:
+      description: "Accounts Users Restore"
+      operationId: "accounts-options-users-restore"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Users Restore"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Users to fetch"
+        required: true
+        type: string
+      security: []
+    put:
+      description: "Accounts Users Restore"
+      operationId: "accounts-put-users-restore"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Users Restore"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Users to fetch"
+        required: true
+        type: string
+      security: []
+  "/accounts/authentication/roles/update/{doc_id}":
+    options:
+      description: "Accounts Roles Update"
+      operationId: "accounts-options-roles-update"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Roles Update"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Roles to fetch"
+        required: true
+        type: string
+      security: []
+    post:
+      description: "Accounts Roles Update"
+      operationId: "accounts-post-roles-update"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Roles Update"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Roles to fetch"
+        required: true
+        type: string
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/roles/delete/{doc_id}":
+    options:
+      description: "Accounts Roles Delete"
+      operationId: "accounts-options-roles-delete"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Roles Delete"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Roles to fetch"
+        required: true
+        type: string
+      security: []
+    post:
+      description: "Accounts Roles Delete"
+      operationId: "accounts-post-roles-delete"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Roles Delete"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Roles to fetch"
+        required: true
+        type: string
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/users/update/{doc_id}":
+    options:
+      description: "Accounts Users Update"
+      operationId: "accounts-options-users-update"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Users Update"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Users to fetch"
+        required: true
+        type: string
+      security: []
+    put:
+      description: "Accounts Users Update"
+      operationId: "accounts-put-users-update"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Users Update"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Users to fetch"
+        required: true
+        type: string
+      security: []
+  "/accounts/authentication/users/delete/{doc_id}":
+    options:
+      description: "Accounts Users Delete"
+      operationId: "accounts-options-users-delete"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Users Delete"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Users to fetch"
+        required: true
+        type: string
+      security: []
+    delete:
+      description: "Accounts Users Delete"
+      operationId: "accounts-delete-users-delete"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Users Delete"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Users to fetch"
+        required: true
+        type: string
+      security: []
+  "/accounts/authentication/roles/view/{doc_id}":
+    options:
+      description: "Accounts Roles View"
+      operationId: "accounts-options-roles-view"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Roles View"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Roles to fetch"
+        required: true
+        type: string
+      security: []
+    get:
+      description: "Accounts Roles View"
+      operationId: "accounts-get-roles-view"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Roles View"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Roles to fetch"
+        required: true
+        type: string
+      security:
+      - api_key: []
+        pypa_auth: []
+  "/accounts/authentication/users/view/{doc_id}":
+    options:
+      description: "Accounts Users View"
+      operationId: "accounts-options-users-view"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Users View"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Users to fetch"
+        required: true
+        type: string
+      security: []
+    get:
+      description: "Accounts Users View"
+      operationId: "accounts-get-users-view"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Accounts Users View"
+      parameters:
+      - name: doc_id
+        in: path
+        description: "Users to fetch"
+        required: true
+        type: string
+      security:
+      - api_key: []
+        pypa_auth: []
+# [START securityDef]
+securityDefinitions:
+  # This section configures basic authentication with an API key.
+  api_key:
+    type: "apiKey"
+    name: "x-api-key"
+    in: "header"
+  pypa_auth:
+    authorizationUrl: ""
+    flow: "implicit"
+    type: "oauth2"
+    # The value below should be unique
+    x-google-issuer: "development-endpoint-service@huko-312103.iam.gserviceaccount.com"
+    x-google-jwks_uri: "https://www.googleapis.com/service_accounts/v1/metadata/x509/development-endpoint-service@huko-312103.iam.gserviceaccount.com"
+    # Optional. Replace YOUR-CLIENT-ID with your client ID
+    x-google-audiences: "pypa-api-development.endpoints.huko-312103.cloud.goog"
+# [END securityDef]
