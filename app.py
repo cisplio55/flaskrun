@@ -1,6 +1,5 @@
 from json import dumps
-from flask import Flask
-from flask import request
+from flask import Flask, render_template, request
 from flask_jwt_extended import JWTManager, jwt_required, create_access_token
 import io
 # import pyyaml module
@@ -8,10 +7,14 @@ import yaml
 from yaml.loader import SafeLoader
 import pandas as pd
 
-app = Flask(__name__)
+app = Flask(
+    __name__, 
+    template_folder='frontend',
+    static_url_path='', 
+    static_folder='frontend',
+    )
 jwt = JWTManager(app)
 app.config["JWT_SECRET_KEY"] = "this-is-secret-key"
-
 
 
 # ------------------------------------------
@@ -62,48 +65,24 @@ def show_subpath(subpath):
 # Reading cookies
 # ------------------------------------------
 
-@app.route('/')
-def reacCoocie():
-    username = request.cookies.get('username')
-    # use cookies.get(key) instead of cookies[key] to not get a
-    # KeyError if the cookie is missing.
+# @app.route('/')
+# def reacCoocie():
+#     username = request.cookies.get('username')
+#     # use cookies.get(key) instead of cookies[key] to not get a
+#     # KeyError if the cookie is missing.
 # ------------------------------------------
 
 # ------------------------------------------
 # Storing cookies
 # ------------------------------------------
 
-@app.route('/')
-def writeCoocie():
-    resp = "make_response(render_template(...))"
-    resp.set_cookie('username', 'the username')
-    return resp
-# ------------------------------------------
-
-
-# ------------------------------------------
-# URL Building
-# ------------------------------------------
-# from flask import url_for
-
 # @app.route('/')
-# def index():
-#     return 'index'
-
-# @app.route('/login')
-# def login():
-#     return 'login'
-
-# @app.route('/user/<username>')
-# def profile(username):
-#     return f'{username}\'s profile'
-
-# with app.test_request_context():
-#     print(url_for('index'))             # /
-#     print(url_for('login'))             # /login
-#     print(url_for('login', next='/'))   # /login?next=/
-#     print(url_for('profile', username='John Doe'))   # /user/John%20Doe
+# def writeCoocie():
+#     resp = "make_response(render_template(...))"
+#     resp.set_cookie('username', 'the username')
+#     return resp
 # ------------------------------------------
+
 
 
 
@@ -116,6 +95,11 @@ from flask import request
 import bcrypt
 from util import *
 from yml_handler.readdata import *
+
+
+@app.route("/")
+def uploadFile():
+    return render_template('uploadFile.html', name="uploadFile")
 
 @app.route('/register', methods=['POST'])
 def register():
@@ -179,5 +163,32 @@ def get_csv_data():
         return response
     except Exception as e:
         return errorresponse("get_csv_data", e)
+# ------------------------------------------
+
+
+
+# ------------------------------------------
+# URL Building
+# ------------------------------------------
+from flask import url_for
+
+# @app.route('/')
+# def index():
+#     return 'index'
+
+# @app.route('/login')
+# def login():
+#     return 'login'
+
+# @app.route('/user/<username>')
+# def profile(username):
+#     return f'{username}\'s profile'
+
+with app.test_request_context():
+    print(url_for('uploadFile'))             # /
+    # print(url_for('index'))             # /
+    # print(url_for('login'))             # /login
+    # print(url_for('login', next='/'))   # /login?next=/
+    # print(url_for('profile', username='John Doe'))   # /user/John%20Doe
 # ------------------------------------------
 
