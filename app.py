@@ -16,78 +16,6 @@ app = Flask(
 jwt = JWTManager(app)
 app.config["JWT_SECRET_KEY"] = "this-is-secret-key"
 
-
-# ------------------------------------------
-# Pass variables as argument
-# ------------------------------------------
-from markupsafe import escape
-
-@app.route('/user')
-def show_user_profile(username):
-    # show the user profile for that user
-    return f'User {escape(username)}'
-
-@app.route('/post/<int:post_id>')
-def show_post(post_id):
-    # show the post with the given id, the id is an integer
-    return f'Post {post_id}'
-
-@app.route('/path/<path:subpath>')
-def show_subpath(subpath):
-    # show the subpath after /path/
-    return f'Subpath {escape(subpath)}'
-# ------------------------------------------
-
-# ------------------------------------------
-# HTTP Methods
-# ------------------------------------------
-# from flask import request
-
-# @app.route('/login', methods=['GET', 'POST'])
-# def login():
-#     if request.method == 'POST':
-#         return "do_the_login()"
-#     else:
-#         return "show_the_login_form()"
-
-#             # OR
-
-# @app.get('/login')
-# def login_get():
-#     return "show_the_login_form()"
-
-# @app.post('/login')
-# def login_post():
-#     return "do_the_login()"
-# ------------------------------------------
-
-# ------------------------------------------
-# Reading cookies
-# ------------------------------------------
-
-# @app.route('/')
-# def reacCoocie():
-#     username = request.cookies.get('username')
-#     # use cookies.get(key) instead of cookies[key] to not get a
-#     # KeyError if the cookie is missing.
-# ------------------------------------------
-
-# ------------------------------------------
-# Storing cookies
-# ------------------------------------------
-
-# @app.route('/')
-# def writeCoocie():
-#     resp = "make_response(render_template(...))"
-#     resp.set_cookie('username', 'the username')
-#     return resp
-# ------------------------------------------
-
-
-
-
-
-
 # ------------------------------------------
 # HTTP Methods
 # ------------------------------------------
@@ -95,7 +23,6 @@ from flask import request
 import bcrypt
 from util import *
 from yml_handler.readdata import *
-
 
 @app.route("/")
 def uploadFile():
@@ -116,8 +43,6 @@ def register():
     else:
         return {"message" : "User already exists. Please login or try with another user name."}
 
-
-
 @app.route('/login', methods=['POST'])
 def login():
     try:
@@ -136,7 +61,6 @@ def login():
         return dataresponse("login", {"message" : "Invalid credential"})
     except Exception as e:
         return errorresponse("login", e)
-
 
 @app.route('/getUsers', methods=['GET'])
 # @jwt_required
@@ -165,30 +89,14 @@ def get_csv_data():
         return errorresponse("get_csv_data", e)
 # ------------------------------------------
 
-
-
 # ------------------------------------------
 # URL Building
 # ------------------------------------------
-from flask import url_for
-
-# @app.route('/')
-# def index():
-#     return 'index'
-
-# @app.route('/login')
-# def login():
-#     return 'login'
-
-# @app.route('/user/<username>')
-# def profile(username):
-#     return f'{username}\'s profile'
-
-with app.test_request_context():
-    print(url_for('uploadFile'))             # /
-    # print(url_for('index'))             # /
-    # print(url_for('login'))             # /login
-    # print(url_for('login', next='/'))   # /login?next=/
-    # print(url_for('profile', username='John Doe'))   # /user/John%20Doe
+# from flask import url_for
+# with app.test_request_context():
+#     print(url_for('uploadFile'))             # /
+#     print(url_for('index'))             # /
+#     print(url_for('login'))             # /login
+#     print(url_for('login', next='/'))   # /login?next=/
+#     print(url_for('profile', username='John Doe'))   # /user/John%20Doe
 # ------------------------------------------
-
