@@ -1,0 +1,44 @@
+.center {
+    display: flex;
+    justify-content: center;
+    padding-top: 20%;
+    /* border: 5px solid #FFFF00; */
+    /* text-align: center; */
+}
+
+.form {
+    position: relative;
+    width: 30%;
+    /* height: 498px; */
+    margin: 0 auto;
+    padding: 1em;
+    box-sizing: border-box;
+    background: rgb(218, 215, 232) url(background.jpg);
+
+    /* we create our grid */
+    /* display: grid;
+    grid-gap: 20px; */
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 10em 1em 1em 1em;
+}
+
+.label{
+    color: rgb(72, 61, 131);
+}
+
+
+/* input{
+    color: red;
+} */
+
+.button {
+    background: rgb(72, 61, 131);
+    border-radius: 28px;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 20px;
+  }
+  
+  .button:hover {
+    background: rgb(125, 116, 174);
+  }
