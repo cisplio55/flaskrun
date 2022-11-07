@@ -78,7 +78,7 @@ def get_csv_data():
         data = yaml.load(raw_data, Loader=SafeLoader)
         df  = yml_to_df(app, data)
         s   = io.StringIO()
-        df.to_csv(s)
+        df.to_csv(s, index=False)
         csv = s.getvalue()# pd.read_csv(app.root_path+'/yml_handler/output.csv')
         response = make_response(csv)
         cd = 'attachment; filename=mycsv.csv'
