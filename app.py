@@ -22,9 +22,6 @@ app = Flask(
 jwt = JWTManager(app)
 app.config["JWT_SECRET_KEY"] = "this-is-secret-key"
 
-# ------------------------------------------
-# HTTP Methods
-# ------------------------------------------
 
 @app.route('/register', methods=['POST'])
 def register():
@@ -42,7 +39,6 @@ def register():
         return {"message": "Thanks for register."}
     else:
         return {"message": "User already exists. Please login or try with another user name."}
-
 
 @app.route('/login', methods=['POST'])
 def login():
@@ -62,7 +58,6 @@ def login():
     except Exception as e:
         return errorresponse("login", e)
 
-
 @app.route('/getUsers', methods=['GET'])
 # @jwt_required
 def getUsers():
@@ -73,7 +68,6 @@ def getUsers():
     except Exception as e:
         return errorresponse("getUsers", e)
 
-
 @app.route('/get_csv_data', methods=['POST'])
 def get_csv_data():
     try:
@@ -83,7 +77,6 @@ def get_csv_data():
 
         df = yml_to_df(app, data)
         fileName = "OutputTable"
-
         """This block Returns CSV file"""
         # s   = io.StringIO()
         # df.to_csv(s, index=False)
@@ -108,17 +101,12 @@ def get_csv_data():
 
     except Exception as e:
         return errorresponse("get_csv_data", e)
-# ------------------------------------------
-
-# @app.route('/test', methods=['GET'])
-# @app.route('/<test_id>')
-# @app.route('/test/<testName>')
 
 
 @app.route('/multi/level/url/test/<user_id>/<org_id>', defaults={'username': "Subhankar"}, methods=["GET", "POST"])
-def test(user_id, username):
+def test(user_id, org_id, username):
     try:
-        return dataresponse("TestCAll", {"message": user_id, "username": username})
+        return dataresponse("TestCAll", {"message": user_id, "org_id" : org_id, "username": username})
     except Exception as e:
         return errorresponse("login", e)
 

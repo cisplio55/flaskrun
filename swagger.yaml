@@ -54,13 +54,18 @@ paths:
       - api_key: []
         pypa_auth: []
     post: *id004
-  /multi/level/url/test/{user_id>/<org_id}:
+  /multi/level/url/test/{user_id}/{org_id}:
     get: &id005
       description: ' Multi Level Url Test  User Id   Org Id '
       parameters:
-      - description: ' Multi Level Url Test  User Id   Org Id '
+      - description: Import for user_id
         in: path
-        name: user_id>/<org_id
+        name: user_id
+        required: true
+        type: string
+      - description: Import for org_id
+        in: path
+        name: org_id
         required: true
         type: string
       produces:
@@ -85,20 +90,20 @@ paths:
       - api_key: []
         pypa_auth: []
     post: *id006
-  /{filename}:
+  /{path:filename}:
     get: &id007
-      description: '  Filename '
+      description: '  Path Filename '
       parameters:
-      - description: '  Filename '
+      - description: Import for path:filename
         in: path
-        name: filename
+        name: path:filename
         required: true
         type: string
       produces:
       - application/json
       responses:
         200:
-          description: '  Filename '
+          description: '  Path Filename '
       security:
       - api_key: []
         pypa_auth: []
