@@ -76,4 +76,3 @@ def logger(tag = "", value = "", level = "info"):
 
     else:
         print("!!!UNKNOWN LOGGING LEVEL!!!"+level)
-

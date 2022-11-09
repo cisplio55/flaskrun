@@ -1,0 +1,129 @@
+consumes:
+- application/json
+host: pypa-api-development.endpoints.huko-312103.cloud.goog
+info:
+  description: Pypa API specification, across all products.
+  title: Pypa Endpoint for Development
+  version: 1.0.0
+paths:
+  /generate_yaml:
+    get: &id001
+      description: ' Generate Yaml'
+      produces:
+      - application/json
+      responses:
+        200:
+          description: ' Generate Yaml'
+      security:
+      - api_key: []
+        pypa_auth: []
+    options: *id001
+  /getUsers:
+    get: &id002
+      description: ' Getusers'
+      produces:
+      - application/json
+      responses:
+        200:
+          description: ' Getusers'
+      security:
+      - api_key: []
+        pypa_auth: []
+    options: *id002
+  /get_csv_data:
+    options: &id003
+      description: ' Get Csv Data'
+      produces:
+      - application/json
+      responses:
+        200:
+          description: ' Get Csv Data'
+      security:
+      - api_key: []
+        pypa_auth: []
+    post: *id003
+  /login:
+    options: &id004
+      description: ' Login'
+      produces:
+      - application/json
+      responses:
+        200:
+          description: ' Login'
+      security:
+      - api_key: []
+        pypa_auth: []
+    post: *id004
+  /multi/level/url/test/{user_id>/<org_id}:
+    get: &id005
+      description: ' Multi Level Url Test  User Id   Org Id '
+      parameters:
+      - description: ' Multi Level Url Test  User Id   Org Id '
+        in: path
+        name: user_id>/<org_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        200:
+          description: ' Multi Level Url Test  User Id   Org Id '
+      security:
+      - api_key: []
+        pypa_auth: []
+    options: *id005
+    post: *id005
+  /register:
+    options: &id006
+      description: ' Register'
+      produces:
+      - application/json
+      responses:
+        200:
+          description: ' Register'
+      security:
+      - api_key: []
+        pypa_auth: []
+    post: *id006
+  /{filename}:
+    get: &id007
+      description: '  Filename '
+      parameters:
+      - description: '  Filename '
+        in: path
+        name: filename
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        200:
+          description: '  Filename '
+      security:
+      - api_key: []
+        pypa_auth: []
+    options: *id007
+produces:
+- application/json
+schemes:
+- https
+- http
+security:
+- api_key: []
+  pypa_auth: []
+securityDefinitions:
+  api_key:
+    in: header
+    name: x-api-key
+    type: apiKey
+  pypa_auth:
+    authorizationUrl: ''
+    flow: implicit
+    type: oauth2
+    x-google-audiences: pypa-api-development.endpoints.huko-312103.cloud.goog
+    x-google-issuer: development-endpoint-service@huko-312103.iam.gserviceaccount.com
+    x-google-jwks_uri: 'https: //www.googleapis.com/service_accounts/v1/metadata/x509/development-endpoint-service@huko-312103.iam.gserviceaccount.com'
+swagger: '2.0'
+x-google-endpoints:
+- name: pypa-api-development.endpoints.huko-312103.cloud.goog
+  target: 34.149.86.33
