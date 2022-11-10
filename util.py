@@ -9,9 +9,7 @@ import os
 
 LOG_LEVEL = "DEBUG"
 LOGFILE_NAME = "data_mining.log"
-
 MSG =  "message"
-
 
 def get_database(databaseName = "PractiseDb"):
    # Provide the mongodb atlas url to connect python to mongodb using pymongo
@@ -39,9 +37,6 @@ def getenteredInfo(request):
         return request.get_json()
     else:
         return None
-
-
-
 
 logging.basicConfig(format='%(asctime)s-%(levelname)-6s:%(message)s', datefmt='%H:%M:%S', level=LOG_LEVEL, 
                     handlers=[logging.FileHandler(LOGFILE_NAME), logging.StreamHandler()])

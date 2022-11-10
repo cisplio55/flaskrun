@@ -1,6 +1,7 @@
 
 import yaml
 import re
+from util import logger
 base_format = {
     'swagger': '2.0',
     'info': {
@@ -125,4 +126,5 @@ def swagger_yaml_generator(app):
             # print("****************************")
         return True
     except Exception as e:
+        logger("swagger_yaml_generator() : ", e, level="error")
         return None

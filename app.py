@@ -22,7 +22,6 @@ app = Flask(
 jwt = JWTManager(app)
 app.config["JWT_SECRET_KEY"] = "this-is-secret-key"
 
-
 @app.route('/register', methods=['POST'])
 def register():
     enteredInfo = getenteredInfo(request)
@@ -102,14 +101,12 @@ def get_csv_data():
     except Exception as e:
         return errorresponse("get_csv_data", e)
 
-
 @app.route('/multi/level/url/test/<user_id>/<org_id>', defaults={'username': "Subhankar"}, methods=["GET", "POST"])
 def test(user_id, org_id, username):
     try:
         return dataresponse("TestCAll", {"message": user_id, "org_id" : org_id, "username": username})
     except Exception as e:
         return errorresponse("login", e)
-
 
 # ------------------------------------------
 # URL Building
@@ -120,8 +117,6 @@ def test(user_id, org_id, username):
 #     print(url_for('getUsers'))             # /login
 #     print(url_for('get_csv_data', next='/'))   # /login?next=/
 # ------------------------------------------
-
-
 
 @app.route("/generate_yaml")
 def generate_yaml():

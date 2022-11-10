@@ -41,7 +41,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"username\" : \"bilash\",\n\t\"password\" : \"majumder\"\n}"
+					"raw": "{\n\t\"username\" : \"satya\",\n\t\"password\" : \"majumder\"\n}"
 				},
 				"description": ""
 			},
@@ -60,7 +60,7 @@
 							"key": "file",
 							"description": "",
 							"type": "file",
-							"src": "openapi_modified.yml"
+							"src": "openApi_auth_plan_billing.yml"
 						}
 					]
 				},
@@ -72,6 +72,28 @@
 			"name": "getUsers",
 			"request": {
 				"url": "http://127.0.0.1:5000/getUsers",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY2NzgwMDcyMCwianRpIjoiNzYxMWY5NzQtNmIwOS00OGZkLTkzNTAtMDEwYWI0YTZlODFiIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ImJpbGFzaCIsIm5iZiI6MTY2NzgwMDcyMCwiZXhwIjoxNjY3ODAxNjIwfQ.7CVNbS7Dp0NllzHF6hyruytct1rv7yV2oUT6X_xGLBw",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "generate_yaml",
+			"request": {
+				"url": "http://127.0.0.1:5000/generate_yaml",
 				"method": "GET",
 				"header": [],
 				"body": {},
