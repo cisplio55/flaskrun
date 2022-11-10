@@ -58,12 +58,13 @@ def swagger_yaml_generator(app):
             # -----------------------------------
             route_format = {}
             verb_details = {}
-
+            output_yaml_file = "swagger.yaml"
             route_path = str(rule)
 
             # /multi/level/url/test/{user_id}/{org_id}
             route_path = route_path.replace("<", "{")
             route_path = route_path.replace(">", "}")
+            route_path = route_path
 
             parameter_names = [s.replace(">", "")
                             for s in re.findall(r'[^<]+>', str(rule))]
@@ -110,8 +111,23 @@ def swagger_yaml_generator(app):
             # {"/accounts/.../view/{doc_id}" : {...}}
             base_format["paths"].update({route_path: route_format})
 
-            with open('swagger.yaml', 'w') as f:
+            with open(output_yaml_file, 'w') as f:
                 data = yaml.dump(base_format, f)
+
+        # -------------------------------------------------        
+        # Modify the router path to keep inside quotation
+        # -------------------------------------------------
+        data = None
+        with open(output_yaml_file, 'r') as file:
+            data = file.read()
+        for rule in app.url_map.iter_rules():
+            route_path = str(rule)
+            data = data.replace(route_path+":", '"'+route_path+'":')
+            # file.write(data)
+        with open(output_yaml_file, 'w') as file:
+            file.write(data)
+        # -------------------------------------------------
+
             # print("rule : ", rule)
             # print("subdomain : ", rule.subdomain)
             # print("methods : ", rule.methods)

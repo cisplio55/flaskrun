@@ -6,7 +6,7 @@ info:
   title: Pypa Endpoint for Development
   version: 1.0.0
 paths:
-  /:
+  "/":
     get: &id001
       description: ' '
       produces:
@@ -18,7 +18,7 @@ paths:
       - api_key: []
         pypa_auth: []
     options: *id001
-  /generate_yaml:
+  "/generate_yaml":
     get: &id002
       description: ' Generate Yaml'
       produces:
@@ -30,7 +30,7 @@ paths:
       - api_key: []
         pypa_auth: []
     options: *id002
-  /getUsers:
+  "/getUsers":
     get: &id003
       description: ' Getusers'
       produces:
@@ -42,7 +42,7 @@ paths:
       - api_key: []
         pypa_auth: []
     options: *id003
-  /get_csv_data:
+  "/get_csv_data":
     options: &id004
       description: ' Get Csv Data'
       produces:
@@ -54,7 +54,7 @@ paths:
       - api_key: []
         pypa_auth: []
     post: *id004
-  /login:
+  "/login":
     options: &id005
       description: ' Login'
       produces:
@@ -90,7 +90,7 @@ paths:
         pypa_auth: []
     options: *id006
     post: *id006
-  /register:
+  "/register":
     options: &id007
       description: ' Register'
       produces:
