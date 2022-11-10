@@ -67,6 +67,10 @@ def getUsers():
     except Exception as e:
         return errorresponse("getUsers", e)
 
+@app.route('/')
+def uploadFile(name=None):  # To return the file upload UI.
+    return render_template('uploadFile.html', name=name)
+
 @app.route('/get_csv_data', methods=['POST'])
 def get_csv_data():
     try:
@@ -90,7 +94,7 @@ def get_csv_data():
         buffer = io.BytesIO()
         total_style = pd.Series("font-weight: bold;", index=["Response Code"])
         df.style.apply(lambda s: total_style)
-        df.to_excel("./yml_handler/output.xlsx", index=False)
+        df.to_excel(fileName+".xlsx", index=False)
         df.to_excel(buffer, index=False)
         headers = {
             'Content-Disposition': 'attachment; filename={}.xlsx'.format(fileName),

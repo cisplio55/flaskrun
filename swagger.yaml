@@ -6,8 +6,20 @@ info:
   title: Pypa Endpoint for Development
   version: 1.0.0
 paths:
-  /generate_yaml:
+  /:
     get: &id001
+      description: ' '
+      produces:
+      - application/json
+      responses:
+        200:
+          description: ' '
+      security:
+      - api_key: []
+        pypa_auth: []
+    options: *id001
+  /generate_yaml:
+    get: &id002
       description: ' Generate Yaml'
       produces:
       - application/json
@@ -17,9 +29,9 @@ paths:
       security:
       - api_key: []
         pypa_auth: []
-    options: *id001
+    options: *id002
   /getUsers:
-    get: &id002
+    get: &id003
       description: ' Getusers'
       produces:
       - application/json
@@ -29,9 +41,9 @@ paths:
       security:
       - api_key: []
         pypa_auth: []
-    options: *id002
+    options: *id003
   /get_csv_data:
-    options: &id003
+    options: &id004
       description: ' Get Csv Data'
       produces:
       - application/json
@@ -41,9 +53,9 @@ paths:
       security:
       - api_key: []
         pypa_auth: []
-    post: *id003
+    post: *id004
   /login:
-    options: &id004
+    options: &id005
       description: ' Login'
       produces:
       - application/json
@@ -53,9 +65,9 @@ paths:
       security:
       - api_key: []
         pypa_auth: []
-    post: *id004
+    post: *id005
   /multi/level/url/test/{user_id}/{org_id}:
-    get: &id005
+    get: &id006
       description: ' Multi Level Url Test  User Id   Org Id '
       parameters:
       - description: Input for user_id
@@ -76,10 +88,10 @@ paths:
       security:
       - api_key: []
         pypa_auth: []
-    options: *id005
-    post: *id005
+    options: *id006
+    post: *id006
   /register:
-    options: &id006
+    options: &id007
       description: ' Register'
       produces:
       - application/json
@@ -89,9 +101,9 @@ paths:
       security:
       - api_key: []
         pypa_auth: []
-    post: *id006
+    post: *id007
   /{path:filename}:
-    get: &id007
+    get: &id008
       description: '  Path Filename '
       parameters:
       - description: Input for path:filename
@@ -107,7 +119,7 @@ paths:
       security:
       - api_key: []
         pypa_auth: []
-    options: *id007
+    options: *id008
 produces:
 - application/json
 schemes:
