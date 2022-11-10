@@ -58,12 +58,12 @@ paths:
     get: &id005
       description: ' Multi Level Url Test  User Id   Org Id '
       parameters:
-      - description: Import for user_id
+      - description: Input for user_id
         in: path
         name: user_id
         required: true
         type: string
-      - description: Import for org_id
+      - description: Input for org_id
         in: path
         name: org_id
         required: true
@@ -94,7 +94,7 @@ paths:
     get: &id007
       description: '  Path Filename '
       parameters:
-      - description: Import for path:filename
+      - description: Input for path:filename
         in: path
         name: path:filename
         required: true
