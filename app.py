@@ -11,7 +11,9 @@ from yml_handler.readdata import *
 from flask import Response
 from flask import url_for
 from urllib.parse import urlparse, parse_qs
-from yml_handler.FlaskRouteToSwagger import swagger_yaml_generator
+from yml_handler.FlaskRouteToSwagger import swagger_yaml_generator, validate_input
+from schema_definations import *
+
 
 app = Flask(
     __name__,
@@ -22,7 +24,9 @@ app = Flask(
 jwt = JWTManager(app)
 app.config["JWT_SECRET_KEY"] = "this-is-secret-key"
 
-@app.route('/register', methods=['POST'])
+
+@app.route('/accounts/authentication/app_registrations/register', methods=['POST'])
+@validate_input(register_schema)
 def register():
     enteredInfo = getenteredInfo(request)
     username = enteredInfo.get("username")
@@ -39,7 +43,9 @@ def register():
     else:
         return {"message": "User already exists. Please login or try with another user name."}
 
-@app.route('/login', methods=['POST'])
+
+@app.route('/accounts/authentication/app_registrations/login', methods=['POST'])
+@validate_input(login_schema)
 def login():
     try:
         enteredInfo = getenteredInfo(request)
@@ -57,8 +63,9 @@ def login():
     except Exception as e:
         return errorresponse("login", e)
 
-@app.route('/getUsers', methods=['GET'])
-# @jwt_required
+
+@app.route('/accounts/authentication/app_registrations/getUsers', methods=['GET'])
+@validate_input()
 def getUsers():
     try:
         users = get_database()['userCredential'].find(
@@ -67,65 +74,73 @@ def getUsers():
     except Exception as e:
         return errorresponse("getUsers", e)
 
+
+@app.route('/accounts/test_url/test/<user_id>/<org_id>', methods=["GET", "POST"])
+@validate_input(test_api_schema)
+def test(user_id, org_id):
+    try:
+        return dataresponse("TestCAll", {"message": user_id, "org_id" : org_id})
+    except Exception as e:
+        return errorresponse("login", e)
+
+
+
+
+
+# ----------------------------------------------------------------------------
+# Swagger utility functions
+# ----------------------------------------------------------------------------
 @app.route('/')
-def uploadFile(name=None):  # To return the file upload UI.
+@validate_input()
+def upload_File_page(name=None):  # To return the file upload UI.
     return render_template('uploadFile.html', name=name)
 
-@app.route('/get_csv_data', methods=['POST'])
-def get_csv_data():
+
+@app.route('/utility/swagger/UI/generate_csv_data', methods=['POST'])
+@validate_input()
+def generate_csv_data():
     try:
-        # In form data, I used "myfile" as key.
+
+        rettype = request.form.to_dict(flat=False).get("rettype", ["CSV"])[0].upper()
         raw_data = request.files['file'].read()
         data = yaml.load(raw_data, Loader=SafeLoader)
-
         df = yml_to_df(app, data)
         fileName = "OutputTable"
-        """This block Returns CSV file"""
-        # s   = io.StringIO()
-        # df.to_csv(s, index=False)
-        # csv = s.getvalue()
-        # response = make_response(csv)
-        # cd = 'attachment; filename={}.csv'.format(fileName)
-        # response.headers['Content-Disposition'] = cd
-        # response.mimetype='text/csv'
-        # return response
 
-        """This block returns Excel file"""
-        buffer = io.BytesIO()
-        total_style = pd.Series("font-weight: bold;", index=["Response Code"])
-        df.style.apply(lambda s: total_style)
-        df.to_excel(fileName+".xlsx", index=False)
-        df.to_excel(buffer, index=False)
-        headers = {
-            'Content-Disposition': 'attachment; filename={}.xlsx'.format(fileName),
-            'Content-type': 'application/vnd.ms-excel'
-        }
-        return Response(buffer.getvalue(), mimetype='application/vnd.ms-excel', headers=headers)
+        if rettype == "CSV":
+            """This block Returns CSV file"""
+            s   = io.StringIO()
+            df.to_csv(s, index=False)
+            csv = s.getvalue()
+            response = make_response(csv)
+            cd = 'attachment; filename={}.csv'.format(fileName)
+            response.headers['Content-Disposition'] = cd
+            response.mimetype='text/csv'
+            return response
+        elif rettype == "EXCEL":
+            """This block returns Excel file"""
+            buffer = io.BytesIO()
+            total_style = pd.Series("font-weight: bold;", index=["Response Code"])
+            df.style.apply(lambda s: total_style)
+            df.to_excel(fileName+".xlsx", index=False)
+            df.to_excel(buffer, index=False)
+            headers = {
+                'Content-Disposition': 'attachment; filename={}.xlsx'.format(fileName),
+                'Content-type': 'application/vnd.ms-excel'
+            }
+            return Response(buffer.getvalue(), mimetype='application/vnd.ms-excel', headers=headers)
 
     except Exception as e:
         return errorresponse("get_csv_data", e)
 
-@app.route('/multi/level/url/test/<user_id>/<org_id>', defaults={'username': "Subhankar"}, methods=["GET", "POST"])
-def test(user_id, org_id, username):
-    try:
-        return dataresponse("TestCAll", {"message": user_id, "org_id" : org_id, "username": username})
-    except Exception as e:
-        return errorresponse("login", e)
 
-# ------------------------------------------
-# URL Building
-# ------------------------------------------
-# with app.test_request_context():
-#     print(url_for('register'))             # /
-#     print(url_for('login'))             # /
-#     print(url_for('getUsers'))             # /login
-#     print(url_for('get_csv_data', next='/'))   # /login?next=/
-# ------------------------------------------
-
-@app.route("/generate_yaml")
+@app.route("/utility/swagger/UI/generate_yaml")
+@validate_input()
 def generate_yaml():
     try:
         swagger_yaml_generator(app)
         return dataresponse("generate_yaml", {"mesage" : "Swagger YAML file generated successfully"})
     except Exception as e:
         errorresponse("generate_yaml", e)
+# swagger_yaml_generator(app) # Create swagger file automatically on flask run.
+# ----------------------------------------------------------------------------

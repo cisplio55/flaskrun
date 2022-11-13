@@ -7,8 +7,17 @@ info:
   version: 1.0.0
 paths:
   "/":
-    get: &id001
+    get:
+      consumes:
+      - application/json
+      parameters: []
+      responses:
+        200:
+          description: Success
+      summary: Upload File Page
+    options:
       description: ' '
+      parameters: []
       produces:
       - application/json
       responses:
@@ -17,100 +26,232 @@ paths:
       security:
       - api_key: []
         pypa_auth: []
-    options: *id001
-  "/generate_yaml":
-    get: &id002
-      description: ' Generate Yaml'
+  "/accounts/authentication/app_registrations/getUsers":
+    get:
+      consumes:
+      - application/json
+      parameters: []
+      responses:
+        200:
+          description: Success
+      summary: Getusers
+    options:
+      description: ' Accounts Authentication App Registrations Getusers'
+      parameters: []
       produces:
       - application/json
       responses:
         200:
-          description: ' Generate Yaml'
+          description: ' Accounts Authentication App Registrations Getusers'
       security:
       - api_key: []
         pypa_auth: []
-    options: *id002
-  "/getUsers":
-    get: &id003
-      description: ' Getusers'
-      produces:
-      - application/json
-      responses:
-        200:
-          description: ' Getusers'
-      security:
-      - api_key: []
-        pypa_auth: []
-    options: *id003
-  "/get_csv_data":
-    options: &id004
-      description: ' Get Csv Data'
-      produces:
-      - application/json
-      responses:
-        200:
-          description: ' Get Csv Data'
-      security:
-      - api_key: []
-        pypa_auth: []
-    post: *id004
-  "/login":
-    options: &id005
-      description: ' Login'
-      produces:
-      - application/json
-      responses:
-        200:
-          description: ' Login'
-      security:
-      - api_key: []
-        pypa_auth: []
-    post: *id005
-  /multi/level/url/test/{user_id}/{org_id}:
-    get: &id006
-      description: ' Multi Level Url Test  User Id   Org Id '
+  "/accounts/authentication/app_registrations/login":
+    options:
+      description: ' Accounts Authentication App Registrations Login'
       parameters:
-      - description: Input for user_id
-        in: path
-        name: user_id
-        required: true
-        type: string
-      - description: Input for org_id
+      - &id001
+        description: The user to create.
+        in: body
+        name: Login
+        schema:
+          properties:
+            password:
+              maxLength: 10
+              minLength: 5
+              type: string
+            username:
+              maxLength: 10
+              minLength: 5
+              type: string
+          required:
+          - username
+          - password
+          type: object
+      produces:
+      - application/json
+      responses:
+        200:
+          description: ' Accounts Authentication App Registrations Login'
+      security:
+      - api_key: []
+        pypa_auth: []
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - *id001
+      responses:
+        200:
+          description: Success
+      summary: Login
+  "/accounts/authentication/app_registrations/register":
+    options:
+      description: ' Accounts Authentication App Registrations Register'
+      parameters:
+      - &id002
+        description: The user to create.
+        in: body
+        name: Register
+        schema:
+          properties:
+            password:
+              maxLength: 10
+              minLength: 5
+              type: string
+            username:
+              maxLength: 10
+              minLength: 5
+              type: string
+          required:
+          - username
+          - password
+          type: object
+      produces:
+      - application/json
+      responses:
+        200:
+          description: ' Accounts Authentication App Registrations Register'
+      security:
+      - api_key: []
+        pypa_auth: []
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - *id002
+      responses:
+        200:
+          description: Success
+      summary: Register
+  /accounts/test_url/test/{user_id}/{org_id}:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - &id003
+        description: Input for org_id
         in: path
         name: org_id
         required: true
         type: string
-      produces:
-      - application/json
-      responses:
-        200:
-          description: ' Multi Level Url Test  User Id   Org Id '
-      security:
-      - api_key: []
-        pypa_auth: []
-    options: *id006
-    post: *id006
-  "/register":
-    options: &id007
-      description: ' Register'
-      produces:
-      - application/json
-      responses:
-        200:
-          description: ' Register'
-      security:
-      - api_key: []
-        pypa_auth: []
-    post: *id007
-  /{path:filename}:
-    get: &id008
-      description: '  Path Filename '
-      parameters:
-      - description: Input for path:filename
+      - &id004
+        description: Input for user_id
         in: path
-        name: path:filename
+        name: user_id
         required: true
         type: string
+      responses:
+        200:
+          description: Success
+      summary: Test
+    options:
+      description: ' Accounts Test Url Test  User Id   Org Id '
+      parameters:
+      - *id003
+      - *id004
+      - &id005
+        description: The user to create.
+        in: body
+        name: Test
+        schema:
+          properties:
+            phone:
+              maxLength: 10
+              minLength: 5
+              type: number
+            pin_code:
+              maxLength: 10
+              minLength: 5
+              type: number
+          required:
+          - user_id
+          - org_id
+          type: object
+      produces:
+      - application/json
+      responses:
+        200:
+          description: ' Accounts Test Url Test  User Id   Org Id '
+      security:
+      - api_key: []
+        pypa_auth: []
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - *id003
+      - *id004
+      - *id005
+      responses:
+        200:
+          description: Success
+      summary: Test
+  "/utility/swagger/UI/generate_csv_data":
+    options:
+      description: ' Utility Swagger Ui Generate Csv Data'
+      parameters:
+      - &id006
+        description: The user to create.
+        in: body
+        name: Generate Csv Data
+        schema: {}
+      produces:
+      - application/json
+      responses:
+        200:
+          description: ' Utility Swagger Ui Generate Csv Data'
+      security:
+      - api_key: []
+        pypa_auth: []
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - *id006
+      responses:
+        200:
+          description: Success
+      summary: Generate Csv Data
+  "/utility/swagger/UI/generate_yaml":
+    get:
+      consumes:
+      - application/json
+      parameters: []
+      responses:
+        200:
+          description: Success
+      summary: Generate Yaml
+    options:
+      description: ' Utility Swagger Ui Generate Yaml'
+      parameters: []
+      produces:
+      - application/json
+      responses:
+        200:
+          description: ' Utility Swagger Ui Generate Yaml'
+      security:
+      - api_key: []
+        pypa_auth: []
+  /{path:filename}:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - &id007
+        description: Input for filename
+        in: path
+        name: filename
+        required: true
+        type: string
+      responses:
+        200:
+          description: Success
+      summary: Static
+    options:
+      description: '  Path Filename '
+      parameters:
+      - *id007
       produces:
       - application/json
       responses:
@@ -119,7 +260,6 @@ paths:
       security:
       - api_key: []
         pypa_auth: []
-    options: *id008
 produces:
 - application/json
 schemes:
