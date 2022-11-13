@@ -10,7 +10,7 @@
 		{
 			"name": "login",
 			"request": {
-				"url": "http://127.0.0.1:5000/login",
+				"url": "http://127.0.0.1:5000/accounts/authentication/app_registrations/login",
 				"method": "POST",
 				"header": [
 					{
@@ -30,7 +30,7 @@
 		{
 			"name": "register",
 			"request": {
-				"url": "http://127.0.0.1:5000/register",
+				"url": "http://127.0.0.1:5000/accounts/authentication/app_registrations/register",
 				"method": "POST",
 				"header": [
 					{
@@ -48,9 +48,9 @@
 			"response": []
 		},
 		{
-			"name": "get_excel_file",
+			"name": "generate_csv_data",
 			"request": {
-				"url": "http://127.0.0.1:5000/get_csv_data",
+				"url": "http://127.0.0.1:5000/utility/swagger/UI/generate_csv_data",
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -60,7 +60,14 @@
 							"key": "file",
 							"description": "",
 							"type": "file",
-							"src": "openApi_auth_plan_billing.yml"
+							"src": "swagger.yaml"
+						},
+						{
+							"key": "rettype",
+							"value": "CSV",
+							"description": "",
+							"type": "text",
+							"disabled": true
 						}
 					]
 				},
@@ -71,7 +78,7 @@
 		{
 			"name": "getUsers",
 			"request": {
-				"url": "http://127.0.0.1:5000/getUsers",
+				"url": "http://127.0.0.1:5000/accounts/authentication/app_registrations/getUsers",
 				"method": "GET",
 				"header": [
 					{
@@ -93,7 +100,38 @@
 		{
 			"name": "generate_yaml",
 			"request": {
-				"url": "http://127.0.0.1:5000/generate_yaml",
+				"url": "http://127.0.0.1:5000/utility/swagger/UI/generate_yaml",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/multi/level/url/test/10/20",
+			"request": {
+				"url": "http://127.0.0.1:5000/accounts/test_url/test/10/20",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"org_id\" : 25415,\n\t\"user_id\" : 64532\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "accounts/test_url/test/underTest/9",
+			"request": {
+				"url": "http://127.0.0.1:5000/accounts/test_url/test/underTest/9",
 				"method": "GET",
 				"header": [],
 				"body": {},

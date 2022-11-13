@@ -228,5 +228,6 @@ def swagger_yaml_generator(app):
 
         return True
     except Exception as e:
-        logger("swagger_yaml_generator() : ", e, level="error")
+        # logger("swagger_yaml_generator() : ", e, level="error")
+        print(e)
         return None

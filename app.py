@@ -84,11 +84,11 @@ def test(user_id, org_id):
         return errorresponse("login", e)
 
 
-@app.route('/accounts/test_url/test/underTest/<org_id>', methods=["GET", "POST", "PATCH"])
+@app.route('/accounts/test_url/test/underTest/<employee_id>', defaults={'org_id': 2}, methods=["GET", "POST", "PATCH"])
 @validate_input(test_api_schema)
-def underTest(org_id):
+def underTest(org_id, employee_id):
     try:
-        return dataresponse("TestCAll", {"message": "Under test message", "org_id" : org_id})
+        return dataresponse("TestCAll", {"message": "Under test message", "org_id" : org_id, "employee_id" : employee_id})
     except Exception as e:
         return errorresponse("login", e)
 
