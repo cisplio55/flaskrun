@@ -51,7 +51,7 @@ paths:
       description: ' Accounts Authentication App Registrations Login'
       parameters:
       - &id001
-        description: The user to create.
+        description: ' Accounts Authentication App Registrations Login'
         in: body
         name: Login
         schema:
@@ -90,7 +90,7 @@ paths:
       description: ' Accounts Authentication App Registrations Register'
       parameters:
       - &id002
-        description: The user to create.
+        description: ' Accounts Authentication App Registrations Register'
         in: body
         name: Register
         schema:
@@ -124,7 +124,7 @@ paths:
         200:
           description: Success
       summary: Register
-  /accounts/test_url/test/{user_id}/{org_id}:
+  /accounts/test_url/test/underTest/{org_id}:
     get:
       consumes:
       - application/json
@@ -135,7 +135,88 @@ paths:
         name: org_id
         required: true
         type: string
+      responses:
+        200:
+          description: Success
+      summary: Undertest
+    options:
+      description: ' Accounts Test Url Test Undertest  Org Id '
+      parameters:
+      - *id003
       - &id004
+        description: ' Accounts Test Url Test Undertest  Org Id '
+        in: body
+        name: Undertest
+        schema:
+          properties:
+            phone:
+              maxLength: 10
+              minLength: 5
+              type: number
+            pin_code:
+              maxLength: 10
+              minLength: 5
+              type: number
+          required:
+          - user_id
+          - org_id
+          type: object
+      produces:
+      - application/json
+      responses:
+        200:
+          description: ' Accounts Test Url Test Undertest  Org Id '
+      security:
+      - api_key: []
+        pypa_auth: []
+    patch:
+      consumes:
+      - application/json
+      parameters:
+      - *id003
+      - *id004
+      responses:
+        200:
+          description: Success
+      summary: Undertest
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - *id003
+      - description: ' Accounts Test Url Test Undertest  Org Id '
+        in: body
+        name: Undertest
+        schema:
+          properties:
+            phone:
+              maxLength: 10
+              minLength: 5
+              type: number
+            pin_code:
+              maxLength: 10
+              minLength: 5
+              type: number
+          required:
+          - user_id
+          - org_id
+          type: object
+      responses:
+        200:
+          description: Success
+      summary: Undertest
+  /accounts/test_url/test/{user_id}/{org_id}:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - &id005
+        description: Input for org_id
+        in: path
+        name: org_id
+        required: true
+        type: string
+      - &id006
         description: Input for user_id
         in: path
         name: user_id
@@ -148,10 +229,10 @@ paths:
     options:
       description: ' Accounts Test Url Test  User Id   Org Id '
       parameters:
-      - *id003
-      - *id004
-      - &id005
-        description: The user to create.
+      - *id005
+      - *id006
+      - &id007
+        description: ' Accounts Test Url Test  User Id   Org Id '
         in: body
         name: Test
         schema:
@@ -180,9 +261,9 @@ paths:
       consumes:
       - application/json
       parameters:
-      - *id003
-      - *id004
       - *id005
+      - *id006
+      - *id007
       responses:
         200:
           description: Success
@@ -191,8 +272,8 @@ paths:
     options:
       description: ' Utility Swagger Ui Generate Csv Data'
       parameters:
-      - &id006
-        description: The user to create.
+      - &id008
+        description: ' Utility Swagger Ui Generate Csv Data'
         in: body
         name: Generate Csv Data
         schema: {}
@@ -208,7 +289,7 @@ paths:
       consumes:
       - application/json
       parameters:
-      - *id006
+      - *id008
       responses:
         200:
           description: Success
@@ -238,7 +319,7 @@ paths:
       consumes:
       - application/json
       parameters:
-      - &id007
+      - &id009
         description: Input for filename
         in: path
         name: filename
@@ -251,7 +332,7 @@ paths:
     options:
       description: '  Path Filename '
       parameters:
-      - *id007
+      - *id009
       produces:
       - application/json
       responses:

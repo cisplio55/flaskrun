@@ -181,7 +181,7 @@ def swagger_yaml_generator(app):
                                 {
                                     "in": "body",
                                     "name": rm_sc_make_title(endpoint),
-                                    "description": "The user to create.",
+                                    "description": description,
                                     "schema": rv.get_json() if "properties" in rv.get_json() else {},
                                 }
                             ]
