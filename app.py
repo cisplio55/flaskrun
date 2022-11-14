@@ -74,7 +74,6 @@ def getUsers():
     except Exception as e:
         return errorresponse("getUsers", e)
 
-
 @app.route('/accounts/test_url/test/<user_id>/<org_id>', methods=["GET", "POST"])
 @validate_input(test_api_schema)
 def test(user_id, org_id):
@@ -84,16 +83,17 @@ def test(user_id, org_id):
         return errorresponse("login", e)
 
 
-@app.route('/accounts/test_url/test/underTest/<employee_id>', defaults={'org_id': 2}, methods=["GET", "POST", "PATCH"])
+@app.route('/accounts/test_url/test/underTest/<employee_id>', methods=["GET", "POST", "PATCH"])
 @validate_input(test_api_schema)
-def underTest(org_id, employee_id):
+def underTest(employee_id):
     try:
-        return dataresponse("TestCAll", {"message": "Under test message", "org_id" : org_id, "employee_id" : employee_id})
+        return dataresponse("TestCAll", {
+            "message": "Under test message", 
+            # "org_id" : org_id, 
+            "employee_id" : employee_id
+            })
     except Exception as e:
         return errorresponse("login", e)
-
-
-
 
 
 # ----------------------------------------------------------------------------
@@ -109,7 +109,6 @@ def upload_File_page(name=None):  # To return the file upload UI.
 @validate_input()
 def generate_csv_data():
     try:
-
         rettype = request.form.to_dict(flat=False).get("rettype", ["CSV"])[0].upper()
         raw_data = request.files['file'].read()
         data = yaml.load(raw_data, Loader=SafeLoader)

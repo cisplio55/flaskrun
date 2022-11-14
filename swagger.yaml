@@ -12,45 +12,45 @@ paths:
       - application/json
       parameters: []
       responses:
-        200:
+        200: &id001
           description: Success
       summary: Upload File Page
     options:
-      description: ' '
+      description: Upload File Page
       parameters: []
       produces:
       - application/json
       responses:
-        200:
-          description: ' '
+        200: *id001
       security:
       - api_key: []
         pypa_auth: []
+      summary: Upload File Page
   "/accounts/authentication/app_registrations/getUsers":
     get:
       consumes:
       - application/json
       parameters: []
       responses:
-        200:
+        200: &id002
           description: Success
       summary: Getusers
     options:
-      description: ' Accounts Authentication App Registrations Getusers'
+      description: Getusers
       parameters: []
       produces:
       - application/json
       responses:
-        200:
-          description: ' Accounts Authentication App Registrations Getusers'
+        200: *id002
       security:
       - api_key: []
         pypa_auth: []
+      summary: Getusers
   "/accounts/authentication/app_registrations/login":
     options:
-      description: ' Accounts Authentication App Registrations Login'
+      description: Login
       parameters:
-      - &id001
+      - &id003
         description: ' Accounts Authentication App Registrations Login'
         in: body
         name: Login
@@ -71,25 +71,25 @@ paths:
       produces:
       - application/json
       responses:
-        200:
-          description: ' Accounts Authentication App Registrations Login'
+        200: &id004
+          description: Success
       security:
       - api_key: []
         pypa_auth: []
+      summary: Login
     post:
       consumes:
       - application/json
       parameters:
-      - *id001
+      - *id003
       responses:
-        200:
-          description: Success
+        200: *id004
       summary: Login
   "/accounts/authentication/app_registrations/register":
     options:
-      description: ' Accounts Authentication App Registrations Register'
+      description: Register
       parameters:
-      - &id002
+      - &id005
         description: ' Accounts Authentication App Registrations Register'
         in: body
         name: Register
@@ -110,48 +110,41 @@ paths:
       produces:
       - application/json
       responses:
-        200:
-          description: ' Accounts Authentication App Registrations Register'
+        200: &id006
+          description: Success
       security:
       - api_key: []
         pypa_auth: []
+      summary: Register
     post:
       consumes:
       - application/json
       parameters:
-      - *id002
+      - *id005
       responses:
-        200:
-          description: Success
+        200: *id006
       summary: Register
-  /accounts/test_url/test/underTest/{org_id}:
+  "/accounts/test_url/test/underTest/{employee_id}":
     get:
       consumes:
       - application/json
       parameters:
-      - &id003
+      - &id007
         description: Input for employee_id
         in: path
         name: employee_id
         required: true
         type: string
-      - &id004
-        description: Input for org_id
-        in: path
-        name: org_id
-        required: true
-        type: string
       responses:
-        200:
+        200: &id008
           description: Success
       summary: Undertest
     options:
-      description: ' Accounts Test Url Test Undertest  Org Id '
+      description: Undertest
       parameters:
-      - *id003
-      - *id004
-      - &id005
-        description: ' Accounts Test Url Test Undertest  Org Id '
+      - *id007
+      - &id009
+        description: ' Accounts Test Url Test Undertest  Employee Id '
         in: body
         name: Undertest
         schema:
@@ -171,29 +164,26 @@ paths:
       produces:
       - application/json
       responses:
-        200:
-          description: ' Accounts Test Url Test Undertest  Org Id '
+        200: *id008
       security:
       - api_key: []
         pypa_auth: []
+      summary: Undertest
     patch:
       consumes:
       - application/json
       parameters:
-      - *id003
-      - *id004
-      - *id005
+      - *id007
+      - *id009
       responses:
-        200:
-          description: Success
+        200: *id008
       summary: Undertest
     post:
       consumes:
       - application/json
       parameters:
-      - *id003
-      - *id004
-      - description: ' Accounts Test Url Test Undertest  Org Id '
+      - *id007
+      - description: ' Accounts Test Url Test Undertest  Employee Id '
         in: body
         name: Undertest
         schema:
@@ -211,36 +201,35 @@ paths:
           - org_id
           type: object
       responses:
-        200:
-          description: Success
+        200: *id008
       summary: Undertest
-  /accounts/test_url/test/{user_id}/{org_id}:
+  "/accounts/test_url/test/{user_id}/{org_id}":
     get:
       consumes:
       - application/json
       parameters:
-      - &id006
+      - &id010
         description: Input for user_id
         in: path
         name: user_id
         required: true
         type: string
-      - &id007
+      - &id011
         description: Input for org_id
         in: path
         name: org_id
         required: true
         type: string
       responses:
-        200:
+        200: &id012
           description: Success
       summary: Test
     options:
-      description: ' Accounts Test Url Test  User Id   Org Id '
+      description: Test
       parameters:
-      - *id006
-      - *id007
-      - &id008
+      - *id010
+      - *id011
+      - &id013
         description: ' Accounts Test Url Test  User Id   Org Id '
         in: body
         name: Test
@@ -261,27 +250,26 @@ paths:
       produces:
       - application/json
       responses:
-        200:
-          description: ' Accounts Test Url Test  User Id   Org Id '
+        200: *id012
       security:
       - api_key: []
         pypa_auth: []
+      summary: Test
     post:
       consumes:
       - application/json
       parameters:
-      - *id006
-      - *id007
-      - *id008
+      - *id010
+      - *id011
+      - *id013
       responses:
-        200:
-          description: Success
+        200: *id012
       summary: Test
   "/utility/swagger/UI/generate_csv_data":
     options:
-      description: ' Utility Swagger Ui Generate Csv Data'
+      description: Generate Csv Data
       parameters:
-      - &id009
+      - &id014
         description: ' Utility Swagger Ui Generate Csv Data'
         in: body
         name: Generate Csv Data
@@ -289,19 +277,19 @@ paths:
       produces:
       - application/json
       responses:
-        200:
-          description: ' Utility Swagger Ui Generate Csv Data'
+        200: &id015
+          description: Success
       security:
       - api_key: []
         pypa_auth: []
+      summary: Generate Csv Data
     post:
       consumes:
       - application/json
       parameters:
-      - *id009
+      - *id014
       responses:
-        200:
-          description: Success
+        200: *id015
       summary: Generate Csv Data
   "/utility/swagger/UI/generate_yaml":
     get:
@@ -309,47 +297,47 @@ paths:
       - application/json
       parameters: []
       responses:
-        200:
+        200: &id016
           description: Success
       summary: Generate Yaml
     options:
-      description: ' Utility Swagger Ui Generate Yaml'
+      description: Generate Yaml
       parameters: []
       produces:
       - application/json
       responses:
-        200:
-          description: ' Utility Swagger Ui Generate Yaml'
+        200: *id016
       security:
       - api_key: []
         pypa_auth: []
-  /{path:filename}:
+      summary: Generate Yaml
+  "/{path:filename}":
     get:
       consumes:
       - application/json
       parameters:
-      - &id010
+      - &id017
         description: Input for filename
         in: path
         name: filename
         required: true
         type: string
       responses:
-        200:
+        200: &id018
           description: Success
       summary: Static
     options:
-      description: '  Path Filename '
+      description: Static
       parameters:
-      - *id010
+      - *id017
       produces:
       - application/json
       responses:
-        200:
-          description: '  Path Filename '
+        200: *id018
       security:
       - api_key: []
         pypa_auth: []
+      summary: Static
 produces:
 - application/json
 schemes:
