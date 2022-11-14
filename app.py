@@ -28,20 +28,24 @@ app.config["JWT_SECRET_KEY"] = "this-is-secret-key"
 @app.route('/accounts/authentication/app_registrations/register', methods=['POST'])
 @validate_input(register_schema)
 def register():
-    enteredInfo = getenteredInfo(request)
-    username = enteredInfo.get("username")
-    password = enteredInfo.get("password")
-    dbname = get_database()
-    collection_name = dbname["userCredential"]
-    user = collection_name.find_one({"username": username})
-    if user == None:
-        hashed_password = bcrypt.hashpw(
-            password.encode('utf-8'), bcrypt.gensalt())
-        collection_name.insert_one(
-            {"username": username, "password": hashed_password})
-        return {"message": "Thanks for register."}
-    else:
-        return {"message": "User already exists. Please login or try with another user name."}
+    try:
+        enteredInfo = getenteredInfo(request)
+        username = enteredInfo.get("username")
+        password = enteredInfo.get("password")
+        dbname = get_database()
+        collection_name = dbname["userCredential"]
+        user = collection_name.find_one({"username": username})
+        if user == None:
+            hashed_password = bcrypt.hashpw(
+                password.encode('utf-8'), bcrypt.gensalt())
+            collection_name.insert_one(
+                {"username": username, "password": hashed_password})
+            return dataresponse("register", {"message": "Thanks for register."})
+        else:
+            return dataresponse("register", {"message": "User already exists. Please login or try with another user name."})
+    except Exception as e:
+        return errorresponse("register", e)
+
 
 
 @app.route('/accounts/authentication/app_registrations/login', methods=['POST'])
@@ -73,6 +77,7 @@ def getUsers():
         return dataresponse("getUsers", list(users))
     except Exception as e:
         return errorresponse("getUsers", e)
+
 
 @app.route('/accounts/test_url/test/<user_id>/<org_id>', methods=["GET", "POST"])
 @validate_input(test_api_schema)
