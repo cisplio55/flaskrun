@@ -7,11 +7,9 @@ from yaml.loader import SafeLoader
 import pandas as pd
 import bcrypt
 from util import *
-from yml_handler.readdata import *
+from yml_handler.swagger_yaml_to_excell import *
 from flask import Response
-from flask import url_for
-from urllib.parse import urlparse, parse_qs
-from yml_handler.FlaskRouteToSwagger import swagger_yaml_generator, validate_input
+from yml_handler.flask_route_to_swagger import generate_swagger_yaml, validate_input
 from schema_definations import *
 
 
@@ -21,9 +19,8 @@ app = Flask(
     static_url_path='',
     static_folder='frontend',
 )
-jwt = JWTManager(app)
-app.config["JWT_SECRET_KEY"] = "this-is-secret-key"
-
+# jwt = JWTManager(app)
+# app.config["JWT_SECRET_KEY"] = "this-is-secret-key"
 
 @app.route('/accounts/authentication/app_registrations/register', methods=['POST'])
 @validate_input(register_schema)
@@ -151,9 +148,9 @@ def generate_csv_data():
 @validate_input()
 def generate_yaml():
     try:
-        swagger_yaml_generator(app)
+        generate_swagger_yaml(app)
         return dataresponse("generate_yaml", {"mesage" : "Swagger YAML file generated successfully"})
     except Exception as e:
         errorresponse("generate_yaml", e)
-# swagger_yaml_generator(app) # Create swagger file automatically on flask run.
+# generate_swagger_yaml(app) # Create swagger file automatically on flask run.
 # ----------------------------------------------------------------------------

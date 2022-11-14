@@ -109,7 +109,7 @@ def validate_input(input_schema=None):
         print(e)
 
 
-def swagger_yaml_generator(app):
+def generate_swagger_yaml(app):
     try:
         for rule in app.url_map.iter_rules():
             # print("rule : ", rule)
@@ -236,6 +236,6 @@ def swagger_yaml_generator(app):
 
         return True
     except Exception as e:
-        # logger("swagger_yaml_generator() : ", e, level="error")
+        # logger("generate_swagger_yaml() : ", e, level="error")
         print(e)
         return None

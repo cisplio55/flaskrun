@@ -19,18 +19,18 @@ def get_database(databaseName = "PractiseDb"):
    # Create the database for our example (we will use the same database throughout the tutorial
    return client[databaseName]
 
-def dataresponse(function_name, data):
+def dataresponse(function_name, data, response = 200):
     logger(function_name+"() : ", data, level="debug")
-    return make_response(jsonify(data), 200)
+    return make_response(jsonify(data), response)
 
 
-def errorresponse(function_name, err, message=None):
+def errorresponse(function_name, err, message=None, response = 400):
     logger(function_name+"() : ", err, level="error")
     data = {
         MSG : "Server error." if message==None else message,
         'err' : str(err)
     }
-    return make_response(jsonify(data), 400)
+    return make_response(jsonify(data), response)
 
 def getenteredInfo(request):
     if request.method == "POST":

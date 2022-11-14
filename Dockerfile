@@ -1,7 +1,7 @@
 FROM python:3.10
 # WORKDIR .
 # COPY output.csv .
-# COPY readdata.py .
+# COPY swagger_yaml_to_excell.py .
 # COPY openapi_modified.yml .
 # COPY requirements.txt .
 WORKDIR /app
