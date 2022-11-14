@@ -5,6 +5,8 @@ from functools import wraps
 from flask import g, request, redirect, url_for
 from flask import abort, make_response, jsonify
 from jsonschema import validate, Draft202012Validator
+import urllib
+from flask import current_app
 
 base_format = {
     'swagger': '2.0',
@@ -112,6 +114,9 @@ def validate_input(input_schema=None):
 def generate_swagger_yaml(app):
     try:
         for rule in app.url_map.iter_rules():
+
+
+            # print(rule)
             # print("rule : ", rule)
             # print("subdomain : ", rule.subdomain)
             # print("methods : ", rule.methods)
@@ -126,6 +131,9 @@ def generate_swagger_yaml(app):
             # print(rule.arguments)
             # print("****************************")
 
+
+            if rule.endpoint == "static":   # Do not include static urls. So just skip if the there is static rule.
+                continue
             # -----------------------------------
             # Get the router Path and param name and make the swagger specific formet.
             # -----------------------------------
@@ -136,7 +144,9 @@ def generate_swagger_yaml(app):
             endpoint = rule.endpoint
             desc_200 = {"description": "Success"}
             route_path = CreateSwaggerSpecificRoute(rule)
-            parameter_names = rule.arguments
+            parameter_names =  list(rule.arguments)
+            if "schema" in parameter_names: # Do not want to keep the schema parameter in swagger.
+                parameter_names.remove("schema")
             # -----------------------------------
 
             description = rm_sc_make_title(route_path)  # Make a description
@@ -168,32 +178,51 @@ def generate_swagger_yaml(app):
             http_verbs = ["get", "post", "patch", "put", "delete"]
             for method in http_verbs:
                 if method.upper() in rule.methods:
-
                     # ----------------------------------------------
-                    # Featch schema and prepare the body.
+                    # Prepare the body with schema.
                     # ----------------------------------------------
                     if method != "get":
-                        with app.test_client() as c:
-                            rv = None
-                            fixed_input = {"get_schema": True}
-                            if method == "post":
-                                rv = c.post(route_path, json=fixed_input)
-                            elif method == "put":
-                                rv = c.put(route_path, json=fixed_input)
-                            elif method == "patch":
-                                rv = c.patch(route_path, json=fixed_input)
-                            elif method == "delete":
-                                rv = c.delete(route_path, json=fixed_input)
+                        body_parameters = [
+                            {
+                                "in": "body",
+                                "name": ep_as_desc,
+                                "description": description,
+                                "schema": rule.defaults.get("schema")#rule.defaults#rv.get_json() if "properties" in rv.get_json() else {},
+                            }
+                        ]
 
-                            body_parameters = [
-                                {
-                                    "in": "body",
-                                    "name": ep_as_desc,
-                                    "description": description,
-                                    "schema": rv.get_json() if "properties" in rv.get_json() else {},
-                                }
-                            ]
+                        # with app.test_client() as c:
+                        #     rv = None
+                        #     fixed_input = {"get_schema": True}
+                        #     if method == "post":
+                        #         rv = c.post(route_path, json=fixed_input)
+                        #     elif method == "put":
+                        #         rv = c.put(route_path, json=fixed_input)
+                        #     elif method == "patch":
+                        #         rv = c.patch(route_path, json=fixed_input)
+                        #     elif method == "delete":
+                        #         rv = c.delete(route_path, json=fixed_input)
+
+                        
+                        
+                    # app_ctx = app.app_context()
+                    # app_ctx.push()
+                    # current_app.config["ENV"] # production
+                    # app_ctx.pop()
+                    # # for rule in app.url_map.iter_rules():
+                    # options = {}
+                    # for arg in rule.arguments:
+                    #     options[arg] = "[{0}]".format(arg)
+                    #     methods = ','.join(rule.methods)
+
+                    # with app.test_request_context(rule.endpoint):
+                    #     url = url_for(rule.endpoint, **options)
+                    #     q = "{:50s} {:20s} {}".format(rule.endpoint, methods, url)
+                    #     # line = urllib.unquote()
+                    #     line = urllib.parse.unquote(q)
+                    #     print(line)
                     # ----------------------------------------------
+
 
                     verb_details.update({method: {
                         "summary": ep_as_desc,

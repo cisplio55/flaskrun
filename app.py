@@ -11,19 +11,19 @@ from yml_handler.swagger_yaml_to_excell import *
 from flask import Response
 from yml_handler.flask_route_to_swagger import generate_swagger_yaml, validate_input
 from schema_definations import *
+from flask import g, request, redirect, url_for
 
 
 app = Flask(
     __name__,
     template_folder='frontend',
-    static_url_path='',
+    static_url_path='/static',
     static_folder='frontend',
 )
 # jwt = JWTManager(app)
 # app.config["JWT_SECRET_KEY"] = "this-is-secret-key"
 
-@app.route('/accounts/authentication/app_registrations/register', methods=['POST'])
-@validate_input(register_schema)
+@app.route('/accounts/authentication/app_registrations/register',  defaults={'schema': register_schema},methods=['POST'])
 def register():
     try:
         enteredInfo = getenteredInfo(request)
@@ -45,8 +45,7 @@ def register():
 
 
 
-@app.route('/accounts/authentication/app_registrations/login', methods=['POST'])
-@validate_input(login_schema)
+@app.route('/accounts/authentication/app_registrations/login', defaults={'schema': login_schema}, methods=['POST'])
 def login():
     try:
         enteredInfo = getenteredInfo(request)
@@ -65,8 +64,7 @@ def login():
         return errorresponse("login", e)
 
 
-@app.route('/accounts/authentication/app_registrations/getUsers', methods=['GET'])
-@validate_input()
+@app.route('/accounts/authentication/app_registrations/getUsers', defaults={'schema': test_api_schema}, methods=['GET'])
 def getUsers():
     try:
         users = get_database()['userCredential'].find(
@@ -76,8 +74,7 @@ def getUsers():
         return errorresponse("getUsers", e)
 
 
-@app.route('/accounts/test_url/test/<user_id>/<org_id>', methods=["GET", "POST"])
-@validate_input(test_api_schema)
+@app.route('/accounts/test_url/test/<user_id>/<org_id>', defaults={'schema': test_api_schema}, methods=["GET", "POST"])
 def test(user_id, org_id):
     try:
         return dataresponse("TestCAll", {"message": user_id, "org_id" : org_id})
@@ -85,8 +82,8 @@ def test(user_id, org_id):
         return errorresponse("login", e)
 
 
-@app.route('/accounts/test_url/test/underTest/<employee_id>', methods=["GET", "POST", "PATCH"])
-@validate_input(test_api_schema)
+@app.route('/accounts/test_url/test/underTest/<employee_id>', defaults={'schema': test_api_schema}, methods=["GET", "POST", "PATCH"])
+# @validate_input(test_api_schema)
 def underTest(employee_id):
     try:
         return dataresponse("TestCAll", {
@@ -102,13 +99,11 @@ def underTest(employee_id):
 # Swagger utility functions
 # ----------------------------------------------------------------------------
 @app.route('/')
-@validate_input()
 def upload_File_page(name=None):  # To return the file upload UI.
     return render_template('uploadFile.html', name=name)
 
 
 @app.route('/utility/swagger/UI/generate_csv_data', methods=['POST'])
-@validate_input()
 def generate_csv_data():
     try:
         rettype = request.form.to_dict(flat=False).get("rettype", ["CSV"])[0].upper()
@@ -145,7 +140,6 @@ def generate_csv_data():
 
 
 @app.route("/utility/swagger/UI/generate_yaml")
-@validate_input()
 def generate_yaml():
     try:
         generate_swagger_yaml(app)
@@ -154,3 +148,42 @@ def generate_yaml():
         errorresponse("generate_yaml", e)
 # generate_swagger_yaml(app) # Create swagger file automatically on flask run.
 # ----------------------------------------------------------------------------
+
+
+# with app.test_request_context():
+#     print(url_for('generate_yaml'))
+#     print(url_for('underTest'))
+    
+
+# with app.app_context():
+    # within this block, current_app points to app.
+    
+    # print (current_app.name)
+
+
+# for rule in app.url_map.iter_rules():
+#     # for rule in app.url_map.iter_rules():
+#     options = {}
+#     for arg in rule.arguments:
+#         options[arg] = "[{0}]".format(arg)
+#         methods = ','.join(rule.methods)
+        
+#         # if options != {}:
+#         print(rule.endpoint, options)
+#         print(url_for(rule.endpoint, **options))
+
+
+
+
+    # url = url_for(rule.endpoint)
+    # print(url)
+    # line = urllib.unquote("{:50s} {:20s} {}".format(rule.endpoint, methods, url))
+    # print(line, "@@@@@@@@@@@@@@")
+    # output.append(line)
+    # for line in sorted(output):
+    #     print line
+
+
+
+
+        

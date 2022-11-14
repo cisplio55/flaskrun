@@ -16,8 +16,6 @@ def yml_to_df(app, data=None):
     groped_route = {}
     df = pd.DataFrame()
     for route_path, route_data in routs.items():
-        path_params = ""
-        body_params = ""
         splitted_path = route_path.split('/')
         if len(splitted_path) < 5: # If length of the URL level less then 5, maintain atlist 5 levels.
             for i in range(5-len(splitted_path)): # Azuming URL mength is 4 alyays the format is > /accounts/Group_category/Groupname/generate_yaml
@@ -26,6 +24,10 @@ def yml_to_df(app, data=None):
         for item, item_data in route_data.items():
             if item in ['get', 'post', 'put', 'patch', 'update', 'delete']:
                 httpVar = item.upper()
+                
+                path_params = ""
+                body_params = ""
+
                 for resp_code in item_data.get("responses"):
                     resp_code = resp_code if isinstance(resp_code, (int)) else None
                 if item_data.get("parameters"):     # if parameter value is not none
@@ -36,7 +38,7 @@ def yml_to_df(app, data=None):
                         if str(param_array.get('in')).lower() == "body": # Process the body parameters.
                             try:
                                 for param in param_array["schema"]["properties"].keys():
-                                    body_params +=param+", "
+                                    body_params += param+", "
                             except:
                                 """
                                 If param_array["schema"]["properties"] is not available

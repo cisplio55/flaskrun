@@ -6,7 +6,7 @@ info:
   title: Pypa Endpoint for Development
   version: 1.0.0
 paths:
-  "/":
+  /:
     get:
       consumes:
       - application/json
@@ -26,7 +26,7 @@ paths:
       - api_key: []
         pypa_auth: []
       summary: Upload File Page
-  "/accounts/authentication/app_registrations/getUsers":
+  /accounts/authentication/app_registrations/getUsers:
     get:
       consumes:
       - application/json
@@ -46,7 +46,7 @@ paths:
       - api_key: []
         pypa_auth: []
       summary: Getusers
-  "/accounts/authentication/app_registrations/login":
+  /accounts/authentication/app_registrations/login:
     options:
       description: Login
       parameters:
@@ -85,7 +85,7 @@ paths:
       responses:
         200: *id004
       summary: Login
-  "/accounts/authentication/app_registrations/register":
+  /accounts/authentication/app_registrations/register:
     options:
       description: Register
       parameters:
@@ -124,7 +124,7 @@ paths:
       responses:
         200: *id006
       summary: Register
-  "/accounts/test_url/test/underTest/{employee_id}":
+  /accounts/test_url/test/underTest/{employee_id}:
     get:
       consumes:
       - application/json
@@ -147,7 +147,7 @@ paths:
         description: ' Accounts Test Url Test Undertest  Employee Id '
         in: body
         name: Undertest
-        schema:
+        schema: &id010
           properties:
             phone:
               maxLength: 10
@@ -186,71 +186,45 @@ paths:
       - description: ' Accounts Test Url Test Undertest  Employee Id '
         in: body
         name: Undertest
-        schema:
-          properties:
-            phone:
-              maxLength: 10
-              minLength: 5
-              type: number
-            pin_code:
-              maxLength: 10
-              minLength: 5
-              type: number
-          required:
-          - user_id
-          - org_id
-          type: object
+        schema: *id010
       responses:
         200: *id008
       summary: Undertest
-  "/accounts/test_url/test/{user_id}/{org_id}":
+  /accounts/test_url/test/{user_id}/{org_id}:
     get:
       consumes:
       - application/json
       parameters:
-      - &id010
-        description: Input for user_id
-        in: path
-        name: user_id
-        required: true
-        type: string
       - &id011
         description: Input for org_id
         in: path
         name: org_id
         required: true
         type: string
+      - &id012
+        description: Input for user_id
+        in: path
+        name: user_id
+        required: true
+        type: string
       responses:
-        200: &id012
+        200: &id013
           description: Success
       summary: Test
     options:
       description: Test
       parameters:
-      - *id010
       - *id011
-      - &id013
+      - *id012
+      - &id014
         description: ' Accounts Test Url Test  User Id   Org Id '
         in: body
         name: Test
-        schema:
-          properties:
-            phone:
-              maxLength: 10
-              minLength: 5
-              type: number
-            pin_code:
-              maxLength: 10
-              minLength: 5
-              type: number
-          required:
-          - user_id
-          - org_id
-          type: object
+        schema: *id010
       produces:
       - application/json
       responses:
-        200: *id012
+        200: *id013
       security:
       - api_key: []
         pypa_auth: []
@@ -259,85 +233,12 @@ paths:
       consumes:
       - application/json
       parameters:
-      - *id010
       - *id011
-      - *id013
-      responses:
-        200: *id012
-      summary: Test
-  "/utility/swagger/UI/generate_csv_data":
-    options:
-      description: Generate Csv Data
-      parameters:
-      - &id014
-        description: ' Utility Swagger Ui Generate Csv Data'
-        in: body
-        name: Generate Csv Data
-        schema: {}
-      produces:
-      - application/json
-      responses:
-        200: &id015
-          description: Success
-      security:
-      - api_key: []
-        pypa_auth: []
-      summary: Generate Csv Data
-    post:
-      consumes:
-      - application/json
-      parameters:
+      - *id012
       - *id014
       responses:
-        200: *id015
-      summary: Generate Csv Data
-  "/utility/swagger/UI/generate_yaml":
-    get:
-      consumes:
-      - application/json
-      parameters: []
-      responses:
-        200: &id016
-          description: Success
-      summary: Generate Yaml
-    options:
-      description: Generate Yaml
-      parameters: []
-      produces:
-      - application/json
-      responses:
-        200: *id016
-      security:
-      - api_key: []
-        pypa_auth: []
-      summary: Generate Yaml
-  "/{path:filename}":
-    get:
-      consumes:
-      - application/json
-      parameters:
-      - &id017
-        description: Input for filename
-        in: path
-        name: filename
-        required: true
-        type: string
-      responses:
-        200: &id018
-          description: Success
-      summary: Static
-    options:
-      description: Static
-      parameters:
-      - *id017
-      produces:
-      - application/json
-      responses:
-        200: *id018
-      security:
-      - api_key: []
-        pypa_auth: []
-      summary: Static
+        200: *id013
+      summary: Test
 produces:
 - application/json
 schemes:
