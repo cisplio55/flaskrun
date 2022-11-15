@@ -132,14 +132,7 @@ def generate_swagger_yaml(app):
             # Do not include static urls. So just skip if the there is static rule.
             if rule.endpoint == "static":
                 continue
-
-            warnings = {}
-            warning_count = 1
-
-            def add_warning(message):
-                warnings.update({warning_count: message})
-                warning_count += 1
-                return True
+            
             # -----------------------------------
             # Get the router Path and param name and make the swagger specific formet.
             # -----------------------------------
