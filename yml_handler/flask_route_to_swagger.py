@@ -129,14 +129,16 @@ def generate_swagger_yaml(app):
             # print(rule.arguments)
             # print("****************************")
 
-            if rule.endpoint == "static":   # Do not include static urls. So just skip if the there is static rule.
+            # Do not include static urls. So just skip if the there is static rule.
+            if rule.endpoint == "static":
                 continue
 
             warnings = {}
             warning_count = 1
+
             def add_warning(message):
-                warnings.update({warning_count:message})
-                warning_count+=1
+                warnings.update({warning_count: message})
+                warning_count += 1
                 return True
             # -----------------------------------
             # Get the router Path and param name and make the swagger specific formet.
@@ -148,8 +150,9 @@ def generate_swagger_yaml(app):
             endpoint = rule.endpoint
             desc_200 = {"description": "Success"}
             route_path = CreateSwaggerSpecificRoute(rule)
-            parameter_names =  list(rule.arguments)
-            if "schema" in parameter_names: # Do not want to keep the schema parameter in swagger.
+            parameter_names = list(rule.arguments)
+            # Do not want to keep the schema parameter in swagger.
+            if "schema" in parameter_names:
                 parameter_names.remove("schema")
             # -----------------------------------
 
@@ -190,20 +193,21 @@ def generate_swagger_yaml(app):
                         try:
                             default_schema = rule.defaults.get("schema")
                         except:
-                            message = "Default schema not available in : "+ str(rule)
+                            message = "Default schema not available in : " + \
+                                str(rule)
                             print("***", message)
                             # add_warning(message)
-                             
+
                         body_parameters = [
                             {
                                 "in": "body",
                                 "name": ep_as_desc,
                                 "description": description,
-                                "schema": default_schema #rule.defaults.get("schema") if rule.defaults is not None else {} #rule.defaults#rv.get_json() if "properties" in rv.get_json() else {},
+                                # rule.defaults.get("schema") if rule.defaults is not None else {} #rule.defaults#rv.get_json() if "properties" in rv.get_json() else {},
+                                "schema": default_schema
                             }
                         ]
                     # ----------------------------------------------
-
 
                     verb_details.update({method: {
                         "summary": ep_as_desc,
@@ -214,7 +218,7 @@ def generate_swagger_yaml(app):
                         "parameters": param_array+body_parameters,
                         "responses": {
                             200: desc_200
-                            }
+                        }
                     }
                     })
 
@@ -246,6 +250,6 @@ def generate_swagger_yaml(app):
 
         return True
     except Exception as e:
-        logger("generate_swagger_yaml() : ", e, level="error")
-        # print(e)
+        # logger("generate_swagger_yaml() : ", e, level="error")
+        print(e)
         return None
