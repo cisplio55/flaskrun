@@ -203,38 +203,6 @@ def generate_swagger_yaml(app):
                             }
                         ]
 
-                        # with app.test_client() as c:
-                        #     rv = None
-                        #     fixed_input = {"get_schema": True}
-                        #     if method == "post":
-                        #         rv = c.post(route_path, json=fixed_input)
-                        #     elif method == "put":
-                        #         rv = c.put(route_path, json=fixed_input)
-                        #     elif method == "patch":
-                        #         rv = c.patch(route_path, json=fixed_input)
-                        #     elif method == "delete":
-                        #         rv = c.delete(route_path, json=fixed_input)
-
-                        
-                        
-                    # app_ctx = app.app_context()
-                    # app_ctx.push()
-                    # current_app.config["ENV"] # production
-                    # app_ctx.pop()
-                    # # for rule in app.url_map.iter_rules():
-                    # options = {}
-                    # for arg in rule.arguments:
-                    #     options[arg] = "[{0}]".format(arg)
-                    #     methods = ','.join(rule.methods)
-
-                    # with app.test_request_context(rule.endpoint):
-                    #     url = url_for(rule.endpoint, **options)
-                    #     q = "{:50s} {:20s} {}".format(rule.endpoint, methods, url)
-                    #     # line = urllib.unquote()
-                    #     line = urllib.parse.unquote(q)
-                    #     print(line)
-                    # ----------------------------------------------
-
 
                     verb_details.update({method: {
                         "summary": ep_as_desc,
