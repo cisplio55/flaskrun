@@ -202,6 +202,7 @@ def generate_swagger_yaml(app):
                                 "schema": default_schema #rule.defaults.get("schema") if rule.defaults is not None else {} #rule.defaults#rv.get_json() if "properties" in rv.get_json() else {},
                             }
                         ]
+                    # ----------------------------------------------
 
 
                     verb_details.update({method: {
