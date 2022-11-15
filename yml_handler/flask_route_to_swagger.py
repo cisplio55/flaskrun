@@ -1,12 +1,5 @@
 import yaml
 import re
-from util import logger
-from functools import wraps
-from flask import g, request, redirect, url_for
-from flask import abort, make_response, jsonify
-from jsonschema import validate, Draft202012Validator
-import urllib
-from flask import current_app
 import traceback
 
 base_format = {
@@ -67,50 +60,6 @@ def CreateSwaggerSpecificRoute(rule):
     route_path = route_path.replace("<", "{")
     route_path = route_path.replace(">", "}")
     return route_path
-
-
-# Decorator function. @validate_input(input_schema)
-def validate_input(input_schema=None):
-    try:
-        """
-        # input schema looks like.
-        schema = {
-            "type" : "object",
-            "properties" : {
-                "username" : {"type" : "string"},
-                "password" : {"type" : "number"},
-            },
-        }
-        """
-        def decoratorFunction(f):
-            @wraps(f)
-            def decorated_function(*args, **kwargs):
-
-                if input_schema == None:    # Simply return without doing anything.
-                    return f(*args, **kwargs)
-
-                # GET methd is ignoored because there is no body in get method.
-                if request.method != "GET":
-                    instance = request.get_json()   # {"get_schema" : true}
-                    # If get_schema = True in the request query then return the schema else validate the user input.
-                    if instance.get("get_schema"):
-                        abort(make_response(jsonify(input_schema), 404))
-                    else:
-                        try:
-                            # Check if chema is valid or not.
-                            validate(instance=instance, schema=input_schema)
-                        except:
-                            validator = Draft202012Validator(input_schema)
-                            # sorted(v.iter_errors(instance), key=lambda e: e.path)
-                            output_schema = validator.schema
-                            abort(make_response(jsonify(output_schema), 404))
-
-                return f(*args, **kwargs)
-            return decorated_function
-        return decoratorFunction
-    except Exception as e:
-        traceback.print_exc()
-
 
 
 def generate_swagger_yaml(app):
@@ -185,6 +134,7 @@ def generate_swagger_yaml(app):
                     # ----------------------------------------------
                     if method != "get":
                         default_schema = {}
+                        
                         try:
                             default_schema = rule.defaults.get("schema")
                         except:

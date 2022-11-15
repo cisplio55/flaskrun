@@ -9,7 +9,7 @@ import bcrypt
 from util import *
 from yml_handler.swagger_yaml_to_excell import *
 from flask import Response
-from yml_handler.flask_route_to_swagger import generate_swagger_yaml, validate_input
+from yml_handler.flask_route_to_swagger import generate_swagger_yaml
 from schema_definations import *
 from flask import g, request, redirect, url_for
 
