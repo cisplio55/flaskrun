@@ -20,11 +20,11 @@ app = Flask(
     static_url_path='/static',
     static_folder='frontend',
 )
-# jwt = JWTManager(app)
-# app.config["JWT_SECRET_KEY"] = "this-is-secret-key"
+jwt = JWTManager(app)
+app.config["JWT_SECRET_KEY"] = "this-is-secret-key"
 
 @app.route('/accounts/authentication/app_registrations/register',  defaults={'schema': register_schema},methods=['POST'])
-def register():
+def register(schema):
     try:
         enteredInfo = getenteredInfo(request)
         username = enteredInfo.get("username")
@@ -46,7 +46,7 @@ def register():
 
 
 @app.route('/accounts/authentication/app_registrations/login', defaults={'schema': login_schema}, methods=['POST'])
-def login():
+def login(schema):
     try:
         enteredInfo = getenteredInfo(request)
         username = enteredInfo.get("username")
@@ -75,7 +75,7 @@ def getUsers():
 
 
 @app.route('/accounts/test_url/test/<user_id>/<org_id>', defaults={'schema': test_api_schema}, methods=["GET", "POST"])
-def test(user_id, org_id):
+def test(user_id, org_id, schema):
     try:
         return dataresponse("TestCAll", {"message": user_id, "org_id" : org_id})
     except Exception as e:
@@ -84,7 +84,7 @@ def test(user_id, org_id):
 
 @app.route('/accounts/test_url/test/underTest/<employee_id>', defaults={'schema': test_api_schema}, methods=["GET", "POST", "PATCH"])
 # @validate_input(test_api_schema)
-def underTest(employee_id):
+def underTest(employee_id, schema):
     try:
         return dataresponse("TestCAll", {
             "message": "Under test message", 
