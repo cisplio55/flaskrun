@@ -7,6 +7,7 @@ from flask import abort, make_response, jsonify
 from jsonschema import validate, Draft202012Validator
 import urllib
 from flask import current_app
+import traceback
 
 base_format = {
     'swagger': '2.0',
@@ -108,7 +109,8 @@ def validate_input(input_schema=None):
             return decorated_function
         return decoratorFunction
     except Exception as e:
-        print(e)
+        traceback.print_exc()
+
 
 
 def generate_swagger_yaml(app):
@@ -186,8 +188,7 @@ def generate_swagger_yaml(app):
                         try:
                             default_schema = rule.defaults.get("schema")
                         except:
-                            message = "Default schema not available in : " + \
-                                str(rule)
+                            message = "Default schema not available in : " + str(rule)
                             print("***", message)
                             # add_warning(message)
 
@@ -235,14 +236,11 @@ def generate_swagger_yaml(app):
             data = file.read()
         for rule in app.url_map.iter_rules():
             route_path = CreateSwaggerSpecificRoute(rule)
-            # print(route_path, "@@@@@@@@@@@@@@")
             data = data.replace(route_path+":", '"'+route_path+'":')
         with open(output_yaml_file, 'w') as file:
             file.write(data)
         # -------------------------------------------------
-
         return True
     except Exception as e:
-        # logger("generate_swagger_yaml() : ", e, level="error")
-        print(e)
+        traceback.print_exc()
         return None

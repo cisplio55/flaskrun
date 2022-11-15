@@ -196,15 +196,15 @@ paths:
       - application/json
       parameters:
       - &id011
-        description: Input for user_id
-        in: path
-        name: user_id
-        required: true
-        type: string
-      - &id012
         description: Input for org_id
         in: path
         name: org_id
+        required: true
+        type: string
+      - &id012
+        description: Input for user_id
+        in: path
+        name: user_id
         required: true
         type: string
       responses:
