@@ -114,8 +114,6 @@ def validate_input(input_schema=None):
 def generate_swagger_yaml(app):
     try:
         for rule in app.url_map.iter_rules():
-
-
             # print(rule)
             # print("rule : ", rule)
             # print("subdomain : ", rule.subdomain)
@@ -131,9 +129,15 @@ def generate_swagger_yaml(app):
             # print(rule.arguments)
             # print("****************************")
 
-
             if rule.endpoint == "static":   # Do not include static urls. So just skip if the there is static rule.
                 continue
+
+            warnings = {}
+            warning_count = 1
+            def add_warning(message):
+                warnings.update({warning_count:message})
+                warning_count+=1
+                return True
             # -----------------------------------
             # Get the router Path and param name and make the swagger specific formet.
             # -----------------------------------
@@ -182,12 +186,20 @@ def generate_swagger_yaml(app):
                     # Prepare the body with schema.
                     # ----------------------------------------------
                     if method != "get":
+                        default_schema = {}
+                        try:
+                            default_schema = rule.defaults.get("schema")
+                        except:
+                            message = "Default schema not available in : "+ str(rule)
+                            print("***", message)
+                            # add_warning(message)
+                             
                         body_parameters = [
                             {
                                 "in": "body",
                                 "name": ep_as_desc,
                                 "description": description,
-                                "schema": rule.defaults.get("schema")#rule.defaults#rv.get_json() if "properties" in rv.get_json() else {},
+                                "schema": default_schema #rule.defaults.get("schema") if rule.defaults is not None else {} #rule.defaults#rv.get_json() if "properties" in rv.get_json() else {},
                             }
                         ]
 
@@ -265,6 +277,6 @@ def generate_swagger_yaml(app):
 
         return True
     except Exception as e:
-        # logger("generate_swagger_yaml() : ", e, level="error")
-        print(e)
+        logger("generate_swagger_yaml() : ", e, level="error")
+        # print(e)
         return None

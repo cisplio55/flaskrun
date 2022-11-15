@@ -6,7 +6,7 @@ info:
   title: Pypa Endpoint for Development
   version: 1.0.0
 paths:
-  /:
+  "/":
     get:
       consumes:
       - application/json
@@ -26,7 +26,7 @@ paths:
       - api_key: []
         pypa_auth: []
       summary: Upload File Page
-  /accounts/authentication/app_registrations/getUsers:
+  "/accounts/authentication/app_registrations/getUsers":
     get:
       consumes:
       - application/json
@@ -46,7 +46,7 @@ paths:
       - api_key: []
         pypa_auth: []
       summary: Getusers
-  /accounts/authentication/app_registrations/login:
+  "/accounts/authentication/app_registrations/login":
     options:
       description: Login
       parameters:
@@ -85,7 +85,7 @@ paths:
       responses:
         200: *id004
       summary: Login
-  /accounts/authentication/app_registrations/register:
+  "/accounts/authentication/app_registrations/register":
     options:
       description: Register
       parameters:
@@ -124,7 +124,7 @@ paths:
       responses:
         200: *id006
       summary: Register
-  /accounts/test_url/test/underTest/{employee_id}:
+  "/accounts/test_url/test/underTest/{employee_id}":
     get:
       consumes:
       - application/json
@@ -190,7 +190,7 @@ paths:
       responses:
         200: *id008
       summary: Undertest
-  /accounts/test_url/test/{user_id}/{org_id}:
+  "/accounts/test_url/test/{user_id}/{org_id}":
     get:
       consumes:
       - application/json
@@ -239,6 +239,52 @@ paths:
       responses:
         200: *id013
       summary: Test
+  "/utility/swagger/UI/generate_csv_data":
+    options:
+      description: Generate Csv Data
+      parameters:
+      - &id015
+        description: ' Utility Swagger Ui Generate Csv Data'
+        in: body
+        name: Generate Csv Data
+        schema: {}
+      produces:
+      - application/json
+      responses:
+        200: &id016
+          description: Success
+      security:
+      - api_key: []
+        pypa_auth: []
+      summary: Generate Csv Data
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - *id015
+      responses:
+        200: *id016
+      summary: Generate Csv Data
+  "/utility/swagger/UI/generate_yaml":
+    get:
+      consumes:
+      - application/json
+      parameters: []
+      responses:
+        200: &id017
+          description: Success
+      summary: Generate Yaml
+    options:
+      description: Generate Yaml
+      parameters: []
+      produces:
+      - application/json
+      responses:
+        200: *id017
+      security:
+      - api_key: []
+        pypa_auth: []
+      summary: Generate Yaml
 produces:
 - application/json
 schemes:

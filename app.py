@@ -64,7 +64,7 @@ def login():
         return errorresponse("login", e)
 
 
-@app.route('/accounts/authentication/app_registrations/getUsers', defaults={'schema': test_api_schema}, methods=['GET'])
+@app.route('/accounts/authentication/app_registrations/getUsers', methods=['GET'])
 def getUsers():
     try:
         users = get_database()['userCredential'].find(
